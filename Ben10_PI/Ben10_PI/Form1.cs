@@ -59,7 +59,6 @@ namespace Ben10_PI
                     {
                         lstJogadores.Items.Add(jogadores[i]);
                     }
-                    return;
                 }
                 else
                 {
