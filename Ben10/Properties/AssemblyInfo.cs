@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
-[assembly: AssemblyTitle("Ben10_PI")]
+[assembly: AssemblyTitle("Ben10")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Ben10_PI")]
+[assembly: AssemblyProduct("Ben10")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("d2ae35b0-5e2f-49d6-9ccb-1d857b2357f6")]
+[assembly: Guid("55634e8b-5b5f-47fc-a3b7-7211a2abb4dd")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //
