@@ -18,6 +18,7 @@ namespace Ben10
         public string nomeJogador;
         public string[] jogadores;
         public int id;
+        string pasta_aplicacao = "";
         public Lobby(string retorno, string nome, string jogadores, int id)
         {
             string[] itens = retorno.Split(',');
@@ -25,7 +26,8 @@ namespace Ben10
             this.senhaJogador = itens[1];
             this.nomeJogador = nome;
             this.id = id;
-
+            
+            //pasta_aplicacao = Application.StartupPath + @"\";
             
             jogadores = jogadores.Replace("\r", "");
             jogadores = jogadores.Replace(',', ' ');
@@ -88,6 +90,43 @@ namespace Ben10
             {
                 lstHistorico.Items.Add(historico[i]);
             }
+        }
+
+        private void btnCartas_Click(object sender, EventArgs e)
+        {
+            string retorno = Jogo.VerificarMao(Convert.ToInt32(this.idJogador), this.senhaJogador);
+            retorno = retorno.Replace("\r", "");
+            string[] itensString = retorno.Split('\n');
+            int[] itens = new int[itensString.Length];
+            string imagem;
+
+            for(int i = 0; i < itensString.Length; i++) //apenas para converter o array de string em um array de int
+            {
+                itens[i] = Convert.ToInt32(itensString[i]);
+            }
+
+            foreach(int item in itens)
+            {
+                if (item <= 5)
+                    imagem = "5";
+                else if (item <= 10)
+                    imagem = "2";
+                else if (item <= 15)
+                    imagem = "10";
+                else if (item <= 20)
+                    imagem = "1";
+                else if (item <= 25)
+                    imagem = "6";
+                else if (item <= 30) ;
+            
+            }
+            //string a = "b7";
+            //panel1.BackgroundImage = Image.FromFile(this.pasta_aplicacao + @"imagens\" + a + ".png");
+            
+            
+            panel1.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b6");
+            panel3.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b8");
+            panel4.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b9");
         }
     }
 }
