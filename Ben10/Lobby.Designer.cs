@@ -45,16 +45,32 @@
             this.btnCartas = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblCarta1 = new System.Windows.Forms.Label();
+            this.lblCarta2 = new System.Windows.Forms.Label();
+            this.lblCarta3 = new System.Windows.Forms.Label();
+            this.lblCarta4 = new System.Windows.Forms.Label();
+            this.lblCarta5 = new System.Windows.Forms.Label();
+            this.lblCarta6 = new System.Windows.Forms.Label();
+            this.lblCarta7 = new System.Windows.Forms.Label();
+            this.lblCarta8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstJogadores
@@ -206,6 +222,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblCarta1);
             this.panel1.Location = new System.Drawing.Point(6, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(105, 144);
@@ -213,13 +230,13 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.panel5);
-            this.groupBox3.Controls.Add(this.panel4);
-            this.groupBox3.Controls.Add(this.panel6);
-            this.groupBox3.Controls.Add(this.panel3);
-            this.groupBox3.Controls.Add(this.panel7);
-            this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Controls.Add(this.panel8);
+            this.groupBox3.Controls.Add(this.panel4);
+            this.groupBox3.Controls.Add(this.panel7);
+            this.groupBox3.Controls.Add(this.panel3);
+            this.groupBox3.Controls.Add(this.panel6);
+            this.groupBox3.Controls.Add(this.panel2);
+            this.groupBox3.Controls.Add(this.panel5);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Location = new System.Drawing.Point(326, 12);
             this.groupBox3.Name = "groupBox3";
@@ -228,54 +245,149 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cartas da Mão";
             // 
-            // panel5
+            // panel8
             // 
-            this.panel5.Location = new System.Drawing.Point(339, 203);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(105, 144);
-            this.panel5.TabIndex = 7;
+            this.panel8.Controls.Add(this.lblCarta8);
+            this.panel8.Location = new System.Drawing.Point(339, 203);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(105, 144);
+            this.panel8.TabIndex = 7;
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.lblCarta4);
             this.panel4.Location = new System.Drawing.Point(339, 29);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(105, 144);
             this.panel4.TabIndex = 3;
             // 
-            // panel6
+            // panel7
             // 
-            this.panel6.Location = new System.Drawing.Point(228, 203);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(105, 144);
-            this.panel6.TabIndex = 6;
+            this.panel7.Controls.Add(this.lblCarta7);
+            this.panel7.Location = new System.Drawing.Point(228, 203);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(105, 144);
+            this.panel7.TabIndex = 6;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblCarta3);
             this.panel3.Location = new System.Drawing.Point(228, 29);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(105, 144);
             this.panel3.TabIndex = 2;
             // 
-            // panel7
+            // panel6
             // 
-            this.panel7.Location = new System.Drawing.Point(117, 203);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(105, 144);
-            this.panel7.TabIndex = 5;
+            this.panel6.Controls.Add(this.lblCarta6);
+            this.panel6.Location = new System.Drawing.Point(117, 203);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(105, 144);
+            this.panel6.TabIndex = 5;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblCarta2);
             this.panel2.Location = new System.Drawing.Point(117, 29);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(105, 144);
             this.panel2.TabIndex = 1;
             // 
-            // panel8
+            // panel5
             // 
-            this.panel8.Location = new System.Drawing.Point(6, 203);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(105, 144);
-            this.panel8.TabIndex = 4;
+            this.panel5.Controls.Add(this.lblCarta5);
+            this.panel5.Location = new System.Drawing.Point(6, 203);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(105, 144);
+            this.panel5.TabIndex = 4;
+            // 
+            // lblCarta1
+            // 
+            this.lblCarta1.AutoSize = true;
+            this.lblCarta1.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarta1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCarta1.Location = new System.Drawing.Point(17, 10);
+            this.lblCarta1.Name = "lblCarta1";
+            this.lblCarta1.Size = new System.Drawing.Size(47, 13);
+            this.lblCarta1.TabIndex = 0;
+            this.lblCarta1.Text = "Nº Carta";
+            // 
+            // lblCarta2
+            // 
+            this.lblCarta2.AutoSize = true;
+            this.lblCarta2.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarta2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCarta2.Location = new System.Drawing.Point(12, 10);
+            this.lblCarta2.Name = "lblCarta2";
+            this.lblCarta2.Size = new System.Drawing.Size(47, 13);
+            this.lblCarta2.TabIndex = 1;
+            this.lblCarta2.Text = "Nº Carta";
+            // 
+            // lblCarta3
+            // 
+            this.lblCarta3.AutoSize = true;
+            this.lblCarta3.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarta3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCarta3.Location = new System.Drawing.Point(13, 10);
+            this.lblCarta3.Name = "lblCarta3";
+            this.lblCarta3.Size = new System.Drawing.Size(47, 13);
+            this.lblCarta3.TabIndex = 2;
+            this.lblCarta3.Text = "Nº Carta";
+            // 
+            // lblCarta4
+            // 
+            this.lblCarta4.AutoSize = true;
+            this.lblCarta4.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarta4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCarta4.Location = new System.Drawing.Point(13, 10);
+            this.lblCarta4.Name = "lblCarta4";
+            this.lblCarta4.Size = new System.Drawing.Size(47, 13);
+            this.lblCarta4.TabIndex = 3;
+            this.lblCarta4.Text = "Nº Carta";
+            // 
+            // lblCarta5
+            // 
+            this.lblCarta5.AutoSize = true;
+            this.lblCarta5.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarta5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCarta5.Location = new System.Drawing.Point(17, 14);
+            this.lblCarta5.Name = "lblCarta5";
+            this.lblCarta5.Size = new System.Drawing.Size(47, 13);
+            this.lblCarta5.TabIndex = 4;
+            this.lblCarta5.Text = "Nº Carta";
+            // 
+            // lblCarta6
+            // 
+            this.lblCarta6.AutoSize = true;
+            this.lblCarta6.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarta6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCarta6.Location = new System.Drawing.Point(12, 14);
+            this.lblCarta6.Name = "lblCarta6";
+            this.lblCarta6.Size = new System.Drawing.Size(47, 13);
+            this.lblCarta6.TabIndex = 5;
+            this.lblCarta6.Text = "Nº Carta";
+            // 
+            // lblCarta7
+            // 
+            this.lblCarta7.AutoSize = true;
+            this.lblCarta7.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarta7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCarta7.Location = new System.Drawing.Point(13, 14);
+            this.lblCarta7.Name = "lblCarta7";
+            this.lblCarta7.Size = new System.Drawing.Size(47, 13);
+            this.lblCarta7.TabIndex = 6;
+            this.lblCarta7.Text = "Nº Carta";
+            // 
+            // lblCarta8
+            // 
+            this.lblCarta8.AutoSize = true;
+            this.lblCarta8.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarta8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCarta8.Location = new System.Drawing.Point(13, 14);
+            this.lblCarta8.Name = "lblCarta8";
+            this.lblCarta8.Size = new System.Drawing.Size(47, 13);
+            this.lblCarta8.TabIndex = 7;
+            this.lblCarta8.Text = "Nº Carta";
             // 
             // Lobby
             // 
@@ -293,7 +405,23 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,12 +446,20 @@
         private System.Windows.Forms.Button btnCartas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label lblCarta1;
+        private System.Windows.Forms.Label lblCarta8;
+        private System.Windows.Forms.Label lblCarta4;
+        private System.Windows.Forms.Label lblCarta7;
+        private System.Windows.Forms.Label lblCarta3;
+        private System.Windows.Forms.Label lblCarta6;
+        private System.Windows.Forms.Label lblCarta2;
+        private System.Windows.Forms.Label lblCarta5;
     }
 }
