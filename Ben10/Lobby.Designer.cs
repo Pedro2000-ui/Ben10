@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Lobby));
             this.lstJogadores = new System.Windows.Forms.ListBox();
             this.btnListar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,29 +45,29 @@
             this.btnCartas = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panelBode8 = new System.Windows.Forms.Panel();
             this.lblCarta8 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panelBode4 = new System.Windows.Forms.Panel();
             this.lblCarta4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.panelBode7 = new System.Windows.Forms.Panel();
             this.lblCarta7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panelBode3 = new System.Windows.Forms.Panel();
             this.lblCarta3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panelBode6 = new System.Windows.Forms.Panel();
             this.lblCarta6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panelBode2 = new System.Windows.Forms.Panel();
             this.lblCarta2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panelBode1 = new System.Windows.Forms.Panel();
+            this.panelBode5 = new System.Windows.Forms.Panel();
             this.lblCarta5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelBode1 = new System.Windows.Forms.Panel();
             this.lblCarta1 = new System.Windows.Forms.Label();
-            this.panelBode2 = new System.Windows.Forms.Panel();
-            this.panelBode3 = new System.Windows.Forms.Panel();
-            this.panelBode4 = new System.Windows.Forms.Panel();
-            this.panelBode5 = new System.Windows.Forms.Panel();
-            this.panelBode6 = new System.Windows.Forms.Panel();
-            this.panelBode7 = new System.Windows.Forms.Panel();
-            this.panelBode8 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -248,13 +247,20 @@
             // 
             // panel8
             // 
-            this.panel8.BackgroundImage = global::Ben10.Properties.Resources.b1;
             this.panel8.Controls.Add(this.panelBode8);
             this.panel8.Controls.Add(this.lblCarta8);
             this.panel8.Location = new System.Drawing.Point(339, 203);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(105, 144);
             this.panel8.TabIndex = 7;
+            // 
+            // panelBode8
+            // 
+            this.panelBode8.BackColor = System.Drawing.Color.Transparent;
+            this.panelBode8.Location = new System.Drawing.Point(0, 0);
+            this.panelBode8.Name = "panelBode8";
+            this.panelBode8.Size = new System.Drawing.Size(28, 28);
+            this.panelBode8.TabIndex = 21;
             // 
             // lblCarta8
             // 
@@ -264,19 +270,26 @@
             this.lblCarta8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblCarta8.Location = new System.Drawing.Point(69, 11);
             this.lblCarta8.Name = "lblCarta8";
-            this.lblCarta8.Size = new System.Drawing.Size(26, 16);
+            this.lblCarta8.Size = new System.Drawing.Size(25, 16);
             this.lblCarta8.TabIndex = 7;
             this.lblCarta8.Text = "Nº ";
             // 
             // panel4
             // 
-            this.panel4.BackgroundImage = global::Ben10.Properties.Resources.b8;
             this.panel4.Controls.Add(this.panelBode4);
             this.panel4.Controls.Add(this.lblCarta4);
             this.panel4.Location = new System.Drawing.Point(339, 29);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(105, 144);
             this.panel4.TabIndex = 3;
+            // 
+            // panelBode4
+            // 
+            this.panelBode4.BackColor = System.Drawing.Color.Transparent;
+            this.panelBode4.Location = new System.Drawing.Point(0, 0);
+            this.panelBode4.Name = "panelBode4";
+            this.panelBode4.Size = new System.Drawing.Size(28, 28);
+            this.panelBode4.TabIndex = 17;
             // 
             // lblCarta4
             // 
@@ -286,19 +299,26 @@
             this.lblCarta4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblCarta4.Location = new System.Drawing.Point(69, 11);
             this.lblCarta4.Name = "lblCarta4";
-            this.lblCarta4.Size = new System.Drawing.Size(23, 16);
+            this.lblCarta4.Size = new System.Drawing.Size(22, 16);
             this.lblCarta4.TabIndex = 3;
             this.lblCarta4.Text = "Nº";
             // 
             // panel7
             // 
-            this.panel7.BackgroundImage = global::Ben10.Properties.Resources.b5;
             this.panel7.Controls.Add(this.panelBode7);
             this.panel7.Controls.Add(this.lblCarta7);
             this.panel7.Location = new System.Drawing.Point(228, 203);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(105, 144);
             this.panel7.TabIndex = 6;
+            // 
+            // panelBode7
+            // 
+            this.panelBode7.BackColor = System.Drawing.Color.Transparent;
+            this.panelBode7.Location = new System.Drawing.Point(0, 0);
+            this.panelBode7.Name = "panelBode7";
+            this.panelBode7.Size = new System.Drawing.Size(28, 28);
+            this.panelBode7.TabIndex = 20;
             // 
             // lblCarta7
             // 
@@ -308,19 +328,26 @@
             this.lblCarta7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblCarta7.Location = new System.Drawing.Point(69, 11);
             this.lblCarta7.Name = "lblCarta7";
-            this.lblCarta7.Size = new System.Drawing.Size(23, 16);
+            this.lblCarta7.Size = new System.Drawing.Size(22, 16);
             this.lblCarta7.TabIndex = 6;
             this.lblCarta7.Text = "Nº";
             // 
             // panel3
             // 
-            this.panel3.BackgroundImage = global::Ben10.Properties.Resources.b6;
             this.panel3.Controls.Add(this.panelBode3);
             this.panel3.Controls.Add(this.lblCarta3);
             this.panel3.Location = new System.Drawing.Point(228, 29);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(105, 144);
             this.panel3.TabIndex = 2;
+            // 
+            // panelBode3
+            // 
+            this.panelBode3.BackColor = System.Drawing.Color.Transparent;
+            this.panelBode3.Location = new System.Drawing.Point(0, 0);
+            this.panelBode3.Name = "panelBode3";
+            this.panelBode3.Size = new System.Drawing.Size(28, 28);
+            this.panelBode3.TabIndex = 16;
             // 
             // lblCarta3
             // 
@@ -330,19 +357,26 @@
             this.lblCarta3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblCarta3.Location = new System.Drawing.Point(69, 11);
             this.lblCarta3.Name = "lblCarta3";
-            this.lblCarta3.Size = new System.Drawing.Size(23, 16);
+            this.lblCarta3.Size = new System.Drawing.Size(22, 16);
             this.lblCarta3.TabIndex = 2;
             this.lblCarta3.Text = "Nº";
             // 
             // panel6
             // 
-            this.panel6.BackgroundImage = global::Ben10.Properties.Resources.b2;
             this.panel6.Controls.Add(this.panelBode6);
             this.panel6.Controls.Add(this.lblCarta6);
             this.panel6.Location = new System.Drawing.Point(117, 203);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(105, 144);
             this.panel6.TabIndex = 5;
+            // 
+            // panelBode6
+            // 
+            this.panelBode6.BackColor = System.Drawing.Color.Transparent;
+            this.panelBode6.Location = new System.Drawing.Point(0, 0);
+            this.panelBode6.Name = "panelBode6";
+            this.panelBode6.Size = new System.Drawing.Size(28, 28);
+            this.panelBode6.TabIndex = 19;
             // 
             // lblCarta6
             // 
@@ -352,19 +386,26 @@
             this.lblCarta6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblCarta6.Location = new System.Drawing.Point(69, 11);
             this.lblCarta6.Name = "lblCarta6";
-            this.lblCarta6.Size = new System.Drawing.Size(23, 16);
+            this.lblCarta6.Size = new System.Drawing.Size(22, 16);
             this.lblCarta6.TabIndex = 5;
             this.lblCarta6.Text = "Nº";
             // 
             // panel2
             // 
-            this.panel2.BackgroundImage = global::Ben10.Properties.Resources.b9;
             this.panel2.Controls.Add(this.panelBode2);
             this.panel2.Controls.Add(this.lblCarta2);
             this.panel2.Location = new System.Drawing.Point(117, 29);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(105, 144);
             this.panel2.TabIndex = 1;
+            // 
+            // panelBode2
+            // 
+            this.panelBode2.BackColor = System.Drawing.Color.Transparent;
+            this.panelBode2.Location = new System.Drawing.Point(0, 0);
+            this.panelBode2.Name = "panelBode2";
+            this.panelBode2.Size = new System.Drawing.Size(28, 28);
+            this.panelBode2.TabIndex = 15;
             // 
             // lblCarta2
             // 
@@ -374,13 +415,12 @@
             this.lblCarta2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblCarta2.Location = new System.Drawing.Point(69, 11);
             this.lblCarta2.Name = "lblCarta2";
-            this.lblCarta2.Size = new System.Drawing.Size(23, 16);
+            this.lblCarta2.Size = new System.Drawing.Size(22, 16);
             this.lblCarta2.TabIndex = 1;
             this.lblCarta2.Text = "Nº";
             // 
             // panel5
             // 
-            this.panel5.BackgroundImage = global::Ben10.Properties.Resources.b10;
             this.panel5.Controls.Add(this.panelBode5);
             this.panel5.Controls.Add(this.lblCarta5);
             this.panel5.Location = new System.Drawing.Point(6, 203);
@@ -388,14 +428,13 @@
             this.panel5.Size = new System.Drawing.Size(105, 144);
             this.panel5.TabIndex = 4;
             // 
-            // panelBode1
+            // panelBode5
             // 
-            this.panelBode1.BackColor = System.Drawing.Color.Transparent;
-            this.panelBode1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelBode1.BackgroundImage")));
-            this.panelBode1.Location = new System.Drawing.Point(3, 113);
-            this.panelBode1.Name = "panelBode1";
-            this.panelBode1.Size = new System.Drawing.Size(28, 28);
-            this.panelBode1.TabIndex = 14;
+            this.panelBode5.BackColor = System.Drawing.Color.Transparent;
+            this.panelBode5.Location = new System.Drawing.Point(0, 0);
+            this.panelBode5.Name = "panelBode5";
+            this.panelBode5.Size = new System.Drawing.Size(28, 28);
+            this.panelBode5.TabIndex = 18;
             // 
             // lblCarta5
             // 
@@ -405,19 +444,26 @@
             this.lblCarta5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblCarta5.Location = new System.Drawing.Point(69, 11);
             this.lblCarta5.Name = "lblCarta5";
-            this.lblCarta5.Size = new System.Drawing.Size(23, 16);
+            this.lblCarta5.Size = new System.Drawing.Size(22, 16);
             this.lblCarta5.TabIndex = 4;
             this.lblCarta5.Text = "Nº";
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::Ben10.Properties.Resources.b4;
             this.panel1.Controls.Add(this.panelBode1);
             this.panel1.Controls.Add(this.lblCarta1);
             this.panel1.Location = new System.Drawing.Point(6, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(105, 144);
             this.panel1.TabIndex = 0;
+            // 
+            // panelBode1
+            // 
+            this.panelBode1.BackColor = System.Drawing.Color.Transparent;
+            this.panelBode1.Location = new System.Drawing.Point(0, 0);
+            this.panelBode1.Name = "panelBode1";
+            this.panelBode1.Size = new System.Drawing.Size(28, 28);
+            this.panelBode1.TabIndex = 14;
             // 
             // lblCarta1
             // 
@@ -427,66 +473,10 @@
             this.lblCarta1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblCarta1.Location = new System.Drawing.Point(69, 11);
             this.lblCarta1.Name = "lblCarta1";
-            this.lblCarta1.Size = new System.Drawing.Size(23, 16);
+            this.lblCarta1.Size = new System.Drawing.Size(22, 16);
             this.lblCarta1.TabIndex = 0;
             this.lblCarta1.Text = "Nº";
             this.lblCarta1.Click += new System.EventHandler(this.lblCarta1_Click);
-            // 
-            // panelBode2
-            // 
-            this.panelBode2.BackColor = System.Drawing.Color.Transparent;
-            this.panelBode2.Location = new System.Drawing.Point(3, 113);
-            this.panelBode2.Name = "panelBode2";
-            this.panelBode2.Size = new System.Drawing.Size(28, 28);
-            this.panelBode2.TabIndex = 15;
-            // 
-            // panelBode3
-            // 
-            this.panelBode3.BackColor = System.Drawing.Color.Transparent;
-            this.panelBode3.Location = new System.Drawing.Point(3, 113);
-            this.panelBode3.Name = "panelBode3";
-            this.panelBode3.Size = new System.Drawing.Size(28, 28);
-            this.panelBode3.TabIndex = 16;
-            // 
-            // panelBode4
-            // 
-            this.panelBode4.BackColor = System.Drawing.Color.Transparent;
-            this.panelBode4.Location = new System.Drawing.Point(3, 113);
-            this.panelBode4.Name = "panelBode4";
-            this.panelBode4.Size = new System.Drawing.Size(28, 28);
-            this.panelBode4.TabIndex = 17;
-            // 
-            // panelBode5
-            // 
-            this.panelBode5.BackColor = System.Drawing.Color.Transparent;
-            this.panelBode5.Location = new System.Drawing.Point(3, 116);
-            this.panelBode5.Name = "panelBode5";
-            this.panelBode5.Size = new System.Drawing.Size(28, 28);
-            this.panelBode5.TabIndex = 18;
-            // 
-            // panelBode6
-            // 
-            this.panelBode6.BackColor = System.Drawing.Color.Transparent;
-            this.panelBode6.Location = new System.Drawing.Point(3, 116);
-            this.panelBode6.Name = "panelBode6";
-            this.panelBode6.Size = new System.Drawing.Size(28, 28);
-            this.panelBode6.TabIndex = 19;
-            // 
-            // panelBode7
-            // 
-            this.panelBode7.BackColor = System.Drawing.Color.Transparent;
-            this.panelBode7.Location = new System.Drawing.Point(3, 113);
-            this.panelBode7.Name = "panelBode7";
-            this.panelBode7.Size = new System.Drawing.Size(28, 28);
-            this.panelBode7.TabIndex = 20;
-            // 
-            // panelBode8
-            // 
-            this.panelBode8.BackColor = System.Drawing.Color.Transparent;
-            this.panelBode8.Location = new System.Drawing.Point(3, 116);
-            this.panelBode8.Name = "panelBode8";
-            this.panelBode8.Size = new System.Drawing.Size(28, 28);
-            this.panelBode8.TabIndex = 21;
             // 
             // Lobby
             // 

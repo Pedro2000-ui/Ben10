@@ -91,42 +91,53 @@ namespace Ben10
 
         private void btnCartas_Click(object sender, EventArgs e)
         {
-            
             string retorno = Jogo.VerificarMao(Convert.ToInt32(this.idJogador), this.senhaJogador);
+            if(retorno.Contains("ERRO"))
+            {
+                MessageBox.Show(retorno, "Para verificar a mão é necessário iniciar a partida!!!");
+                return;
+            }
             txtTest.Text = retorno;
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] itensString = retorno.Split('\n');
             int[] itens = new int[itensString.Length];
+            int[] bodesSizeWidth = new int[itens.Length];
             string[] imagem = new string [itens.Length];
-
+            const int bodesSizeHeigth = 28;
             for (int i = 0; i <= itensString.Length - 1; i++) //apenas para converter o array de string em um array de int
             {
                 itens[i] = Convert.ToInt32(itensString[i]);
 
-                if (itens[i] <= 5)
-                {
-                    imagem[i] = "5";
-                    //if(itens[i] == 4)
-                }
-                else if (itens[i] <= 10)
-                    imagem[i] = "2";
-                
-                else if (itens[i] <= 15)
-                    imagem[i] = "10";
-                else if (itens[i] <= 20)
-                    imagem[i] = "1";
-                else if (itens[i] <= 25)
-                    imagem[i] = "6";
-                else if (itens[i] <= 30)
-                    imagem[i] = "3";
-                else if (itens[i] <= 35)
-                    imagem[i] = "7";
-                else if (itens[i] <= 40)
-                    imagem[i] = "8";
-                else if (itens[i] <= 45)
-                    imagem[i] = "4";
+                //Verificação para Atribuir número de Bodes
+                if (itens[i] < 50 && itens[i] % 10 == 0) //Múltiplos de 10 até o número 49
+                    bodesSizeWidth[i] = 140; //Serão mostrados cinco Bodes
+                else if (itens[i] % 5 == 0) //Múltiplos de 5
+                    bodesSizeWidth[i] = 84; //Serão mostrados três bodes
+                else if (itens[i] % 4 == 0) //Múltiplos de 4
+                    bodesSizeWidth[i] = 56; //Serão mostrados dois bodes
                 else
+                    bodesSizeWidth[i] = 28; //Será mostrado um bode
+                //Verificações para Atribuir Layout da Carta
+                if (itens[i] <= 5)
+                    imagem[i] = "5";
+                else if (itens[i] <= 10) 
+                    imagem[i] = "2";
+                else if (itens[i] <= 15) 
+                    imagem[i] = "10";
+                else if (itens[i] <= 20) 
+                    imagem[i] = "1";
+                else if (itens[i] <= 25) 
+                    imagem[i] = "6";
+                else if (itens[i] <= 30) 
+                    imagem[i] = "3";
+                else if (itens[i] <= 35) 
+                    imagem[i] = "7";
+                else if (itens[i] <= 40) 
+                    imagem[i] = "8";
+                else if (itens[i] <= 45) 
+                    imagem[i] = "4";
+                else 
                     imagem[i] = "9";
             }
 
@@ -138,8 +149,23 @@ namespace Ben10
             lblCarta6.Text = itensString[5];
             lblCarta7.Text = itensString[6];
             lblCarta8.Text = itensString[7];
+            panelBode1.Size = new Size(bodesSizeHeigth, bodesSizeWidth[0]);
+            panelBode1.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+            panelBode2.Size = new Size(bodesSizeHeigth, bodesSizeWidth[1]);
+            panelBode2.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+            panelBode3.Size = new Size(bodesSizeHeigth, bodesSizeWidth[2]);
+            panelBode3.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+            panelBode4.Size = new Size(bodesSizeHeigth, bodesSizeWidth[3]);
+            panelBode4.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+            panelBode5.Size = new Size(bodesSizeHeigth, bodesSizeWidth[4]);
+            panelBode5.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+            panelBode6.Size = new Size(bodesSizeHeigth, bodesSizeWidth[5]);
+            panelBode6.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+            panelBode7.Size = new Size(bodesSizeHeigth, bodesSizeWidth[6]);
+            panelBode7.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+            panelBode8.Size = new Size(bodesSizeHeigth, bodesSizeWidth[7]);
+            panelBode8.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
             panel1.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[0]);
-            //panelBode1.Size = new Size(10, 25);
             panel2.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[1]);
             panel3.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[2]);
             panel4.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[3]);
