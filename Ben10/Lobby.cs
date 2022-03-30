@@ -102,22 +102,23 @@ namespace Ben10
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] itensString = retorno.Split('\n');
             int[] itens = new int[itensString.Length];
-            int[] bodesSizeWidth = new int[itens.Length];
+            int[] bodesSizeHeigth = new int[itens.Length];
             string[] imagem = new string [itens.Length];
-            const int bodesSizeHeigth = 28;
+            const int bodesSizeWidth = 28;
             for (int i = 0; i <= itensString.Length - 1; i++) //apenas para converter o array de string em um array de int
             {
-                itens[i] = Convert.ToInt32(itensString[i]);
+                
+                  itens[i] = Convert.ToInt32(itensString[i]);
 
                 //Verificação para Atribuir número de Bodes
                 if (itens[i] < 50 && itens[i] % 10 == 0) //Múltiplos de 10 até o número 49
-                    bodesSizeWidth[i] = 140; //Serão mostrados cinco Bodes
+                    bodesSizeHeigth[i] = 5 * bodesSizeWidth; //Serão mostrados cinco Bodes
                 else if (itens[i] % 5 == 0) //Múltiplos de 5
-                    bodesSizeWidth[i] = 84; //Serão mostrados três bodes
+                    bodesSizeHeigth[i] = 3 * bodesSizeWidth; //Serão mostrados três bodes
                 else if (itens[i] % 4 == 0) //Múltiplos de 4
-                    bodesSizeWidth[i] = 56; //Serão mostrados dois bodes
+                    bodesSizeHeigth[i] = 2 * bodesSizeWidth; //Serão mostrados dois bodes
                 else
-                    bodesSizeWidth[i] = 28; //Será mostrado um bode
+                    bodesSizeHeigth[i] = 28; //Será mostrado um bode
                 //Verificações para Atribuir Layout da Carta
                 if (itens[i] <= 5)
                     imagem[i] = "5";
@@ -149,21 +150,21 @@ namespace Ben10
             lblCarta6.Text = itensString[5];
             lblCarta7.Text = itensString[6];
             lblCarta8.Text = itensString[7];
-            panelBode1.Size = new Size(bodesSizeHeigth, bodesSizeWidth[0]);
+            panelBode1.Size = new Size(bodesSizeWidth, bodesSizeHeigth[0]);
             panelBode1.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode2.Size = new Size(bodesSizeHeigth, bodesSizeWidth[1]);
+            panelBode2.Size = new Size(bodesSizeWidth, bodesSizeHeigth[1]);
             panelBode2.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode3.Size = new Size(bodesSizeHeigth, bodesSizeWidth[2]);
+            panelBode3.Size = new Size(bodesSizeWidth, bodesSizeHeigth[2]);
             panelBode3.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode4.Size = new Size(bodesSizeHeigth, bodesSizeWidth[3]);
+            panelBode4.Size = new Size(bodesSizeWidth, bodesSizeHeigth[3]);
             panelBode4.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode5.Size = new Size(bodesSizeHeigth, bodesSizeWidth[4]);
+            panelBode5.Size = new Size(bodesSizeWidth, bodesSizeHeigth[4]);
             panelBode5.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode6.Size = new Size(bodesSizeHeigth, bodesSizeWidth[5]);
+            panelBode6.Size = new Size(bodesSizeWidth, bodesSizeHeigth[5]);
             panelBode6.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode7.Size = new Size(bodesSizeHeigth, bodesSizeWidth[6]);
+            panelBode7.Size = new Size(bodesSizeWidth, bodesSizeHeigth[6]);
             panelBode7.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode8.Size = new Size(bodesSizeHeigth, bodesSizeWidth[7]);
+            panelBode8.Size = new Size(bodesSizeWidth, bodesSizeHeigth[7]);
             panelBode8.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
             panel1.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[0]);
             panel2.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[1]);
