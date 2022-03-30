@@ -100,14 +100,18 @@ namespace Ben10
             int[] itens = new int[itensString.Length];
             string[] imagem = new string [itens.Length];
 
-            for(int i = 0; i <= itensString.Length - 1; i++) //apenas para converter o array de string em um array de int
+            for (int i = 0; i <= itensString.Length - 1; i++) //apenas para converter o array de string em um array de int
             {
                 itens[i] = Convert.ToInt32(itensString[i]);
-                
+
                 if (itens[i] <= 5)
+                {
                     imagem[i] = "5";
+                    //if(itens[i] == 4)
+                }
                 else if (itens[i] <= 10)
                     imagem[i] = "2";
+                
                 else if (itens[i] <= 15)
                     imagem[i] = "10";
                 else if (itens[i] <= 20)
@@ -125,6 +129,7 @@ namespace Ben10
                 else
                     imagem[i] = "9";
             }
+
             lblCarta1.Text = itensString[0];
             lblCarta2.Text = itensString[1];
             lblCarta3.Text = itensString[2]; 
@@ -134,6 +139,7 @@ namespace Ben10
             lblCarta7.Text = itensString[6];
             lblCarta8.Text = itensString[7];
             panel1.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[0]);
+            //panelBode1.Size = new Size(10, 25);
             panel2.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[1]);
             panel3.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[2]);
             panel4.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[3]);
@@ -141,6 +147,11 @@ namespace Ben10
             panel6.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[5]);
             panel7.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[6]);
             panel8.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[7]);
+        }
+
+        private void lblCarta1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

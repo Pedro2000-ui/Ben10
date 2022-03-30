@@ -43,3 +43,17 @@ C:\Users\Pichau\PH Projetos\PI3\Ben10\Ben10\obj\Debug\Ben10.csproj.CoreCompileIn
 C:\Users\Pichau\PH Projetos\PI3\Ben10\Ben10\obj\Debug\Ben10.csproj.CopyComplete
 C:\Users\Pichau\PH Projetos\PI3\Ben10\Ben10\obj\Debug\Ben10.exe
 C:\Users\Pichau\PH Projetos\PI3\Ben10\Ben10\obj\Debug\Ben10.pdb
+C:\Users\pholi\JogoPI3\Ben10\Ben10\bin\Debug\Ben10.exe.config
+C:\Users\pholi\JogoPI3\Ben10\Ben10\bin\Debug\Ben10.exe
+C:\Users\pholi\JogoPI3\Ben10\Ben10\bin\Debug\Ben10.pdb
+C:\Users\pholi\JogoPI3\Ben10\Ben10\bin\Debug\BodeOfWarServer.dll
+C:\Users\pholi\JogoPI3\Ben10\Ben10\bin\Debug\BodeOfWarServer.xml
+C:\Users\pholi\JogoPI3\Ben10\Ben10\obj\Debug\Ben10.csproj.AssemblyReference.cache
+C:\Users\pholi\JogoPI3\Ben10\Ben10\obj\Debug\Ben10.Form1.resources
+C:\Users\pholi\JogoPI3\Ben10\Ben10\obj\Debug\Ben10.Lobby.resources
+C:\Users\pholi\JogoPI3\Ben10\Ben10\obj\Debug\Ben10.Properties.Resources.resources
+C:\Users\pholi\JogoPI3\Ben10\Ben10\obj\Debug\Ben10.csproj.GenerateResource.cache
+C:\Users\pholi\JogoPI3\Ben10\Ben10\obj\Debug\Ben10.csproj.CoreCompileInputs.cache
+C:\Users\pholi\JogoPI3\Ben10\Ben10\obj\Debug\Ben10.csproj.CopyComplete
+C:\Users\pholi\JogoPI3\Ben10\Ben10\obj\Debug\Ben10.exe
+C:\Users\pholi\JogoPI3\Ben10\Ben10\obj\Debug\Ben10.pdb
