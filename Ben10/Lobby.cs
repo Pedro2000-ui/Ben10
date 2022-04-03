@@ -18,7 +18,11 @@ namespace Ben10
         public string nomeJogador;
         public string[] jogadores;
         public int id;
-        string pasta_aplicacao = "";
+        List<Panel> cartas;
+        List<Label> numCartas;
+        public int xCarta;
+        public int yCarta;
+       
         public Lobby(string retorno, string nome, string jogadores, int id)
         {
             string[] itens = retorno.Split(',');
@@ -30,7 +34,10 @@ namespace Ben10
             jogadores = jogadores.Replace(',', ' ');
             jogadores = jogadores.Substring(0, jogadores.Length - 1);
             this.jogadores = jogadores.Split('\n');
-
+            cartas = new List<Panel>();
+            numCartas = new List<Label>();
+            this.xCarta = 6;
+            this.yCarta = 29;
             InitializeComponent();
         }
 
@@ -53,7 +60,7 @@ namespace Ben10
             jogadores = jogadores.Replace(',', ' ');
             jogadores = jogadores.Substring(0, jogadores.Length - 1);
             this.jogadores = jogadores.Split('\n');
-            
+
 
             lstJogadores.Items.Clear();
             for (int i = 0; i < this.jogadores.Length; i++)
@@ -65,13 +72,13 @@ namespace Ben10
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
             string retorno = Jogo.IniciarPartida(Convert.ToInt32(this.idJogador), this.senhaJogador);
-            if(retorno.Contains("ERRO"))
+            if (retorno.Contains("ERRO"))
                 MessageBox.Show(retorno);
             else
             {
                 MessageBox.Show("Partida iniciada com sucesso!");
                 btnIniciarPartida.Enabled = false;
-            }           
+            }
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
@@ -83,7 +90,7 @@ namespace Ben10
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] historico = retorno.Split('\n');
 
-            for(int i = 0; i <historico.Length; i++)
+            for (int i = 0; i < historico.Length; i++)
             {
                 lstHistorico.Items.Add(historico[i]);
             }
@@ -91,25 +98,24 @@ namespace Ben10
 
         private void btnCartas_Click(object sender, EventArgs e)
         {
+            numCartas.Clear();
+            cartas.Clear();
             string retorno = Jogo.VerificarMao(Convert.ToInt32(this.idJogador), this.senhaJogador);
-            if(retorno.Contains("ERRO"))
+            if (retorno.Contains("ERRO"))
             {
                 MessageBox.Show(retorno, "Para verificar a mão é necessário iniciar a partida!!!");
                 return;
             }
-            txtTest.Text = retorno;
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] itensString = retorno.Split('\n');
             int[] itens = new int[itensString.Length];
             int[] bodesSizeHeigth = new int[itens.Length];
-            string[] imagem = new string [itens.Length];
+            string[] imagem = new string[itens.Length];
             const int bodesSizeWidth = 28;
             for (int i = 0; i <= itensString.Length - 1; i++) //apenas para converter o array de string em um array de int
             {
-                
-                  itens[i] = Convert.ToInt32(itensString[i]);
-
+                itens[i] = Convert.ToInt32(itensString[i]);
                 //Verificação para Atribuir número de Bodes
                 if (itens[i] < 50 && itens[i] % 10 == 0) //Múltiplos de 10 até o número 49
                     bodesSizeHeigth[i] = 5 * bodesSizeWidth; //Serão mostrados cinco Bodes
@@ -122,63 +128,58 @@ namespace Ben10
                 //Verificações para Atribuir Layout da Carta
                 if (itens[i] <= 5)
                     imagem[i] = "5";
-                else if (itens[i] <= 10) 
+                else if (itens[i] <= 10)
                     imagem[i] = "2";
-                else if (itens[i] <= 15) 
+                else if (itens[i] <= 15)
                     imagem[i] = "10";
-                else if (itens[i] <= 20) 
+                else if (itens[i] <= 20)
                     imagem[i] = "1";
-                else if (itens[i] <= 25) 
+                else if (itens[i] <= 25)
                     imagem[i] = "6";
-                else if (itens[i] <= 30) 
+                else if (itens[i] <= 30)
                     imagem[i] = "3";
-                else if (itens[i] <= 35) 
+                else if (itens[i] <= 35)
                     imagem[i] = "7";
-                else if (itens[i] <= 40) 
+                else if (itens[i] <= 40)
                     imagem[i] = "8";
-                else if (itens[i] <= 45) 
+                else if (itens[i] <= 45)
                     imagem[i] = "4";
-                else 
+                else
                     imagem[i] = "9";
+                
+                Label numCarta = new Label();
+                numCarta.AutoSize = true;
+                numCarta.BackColor = Color.Transparent;
+                numCarta.Font = new Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                numCarta.ForeColor = SystemColors.ControlLightLight;
+                numCarta.Location = new Point(13, 11);
+                numCarta.Name = "lblCarta" + (i + 1);
+                numCarta.Size = new Size(23, 16);
+                numCarta.TabIndex = i + 1;
+                numCarta.Text = itensString[i];
+                numCartas.Add(numCarta);
+                Panel carta = new Panel();
+                carta.Controls.Add(numCartas[i]);
+                carta.Location = new Point(this.xCarta, this.yCarta);
+                carta.Name = "panel" + (i + 1);
+                carta.Size = new Size(105, 144);
+                carta.TabIndex = i + 1;
+                carta.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[i]);
+                cartas.Add(carta);
+                grpCartas.Controls.Add(cartas[i]);
+                if (i == 3) //Se já tiverem 4 cartas criadas
+                {
+                    this.yCarta = 203;
+                    this.xCarta = 6;
+                }
+                else 
+                    this.xCarta += 111;
             }
-
-            lblCarta1.Text = itensString[0];
-            lblCarta2.Text = itensString[1];
-            lblCarta3.Text = itensString[2]; 
-            lblCarta4.Text = itensString[3];
-            lblCarta5.Text = itensString[4];
-            lblCarta6.Text = itensString[5];
-            lblCarta7.Text = itensString[6];
-            lblCarta8.Text = itensString[7];
-            panelBode1.Size = new Size(bodesSizeWidth, bodesSizeHeigth[0]);
-            panelBode1.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode2.Size = new Size(bodesSizeWidth, bodesSizeHeigth[1]);
-            panelBode2.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode3.Size = new Size(bodesSizeWidth, bodesSizeHeigth[2]);
-            panelBode3.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode4.Size = new Size(bodesSizeWidth, bodesSizeHeigth[3]);
-            panelBode4.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode5.Size = new Size(bodesSizeWidth, bodesSizeHeigth[4]);
-            panelBode5.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode6.Size = new Size(bodesSizeWidth, bodesSizeHeigth[5]);
-            panelBode6.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode7.Size = new Size(bodesSizeWidth, bodesSizeHeigth[6]);
-            panelBode7.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panelBode8.Size = new Size(bodesSizeWidth, bodesSizeHeigth[7]);
-            panelBode8.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-            panel1.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[0]);
-            panel2.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[1]);
-            panel3.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[2]);
-            panel4.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[3]);
-            panel5.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[4]);
-            panel6.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[5]);
-            panel7.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[6]);
-            panel8.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[7]);
+            //reseta as posições para os valores iniciais
+            this.xCarta = 6; 
+            this.yCarta = 29;
+           
         }
 
-        private void lblCarta1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
