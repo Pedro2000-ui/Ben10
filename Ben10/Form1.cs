@@ -21,9 +21,10 @@ namespace Ben10
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] partidas = retorno.Split('\n');
-
+            partidas = partidas.Reverse().ToArray();
             for (int i = 0; i < partidas.Length; i++)
                 lstPartidas.Items.Add(partidas[i]);
+            
         }
         public Form1()
         {
@@ -48,7 +49,7 @@ namespace Ben10
             {
                 MessageBox.Show("Partida Criada com Sucesso!");
                 this.listarPartidas();
-                lstPartidas.SelectedItem = lstPartidas.Items[lstPartidas.Items.Count - 1];
+                lstPartidas.SelectedItem = lstPartidas.Items[0];
             }
         }
 

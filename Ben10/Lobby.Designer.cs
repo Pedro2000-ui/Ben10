@@ -55,8 +55,12 @@
             this.btnVez = new System.Windows.Forms.Button();
             this.lstVez = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.grpCartas.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstJogadores
@@ -200,6 +204,7 @@
             // 
             // grpCartas
             // 
+            this.grpCartas.Controls.Add(this.panel1);
             this.grpCartas.Location = new System.Drawing.Point(326, 12);
             this.grpCartas.Name = "grpCartas";
             this.grpCartas.Size = new System.Drawing.Size(452, 377);
@@ -220,6 +225,7 @@
             this.txtIlha.Name = "txtIlha";
             this.txtIlha.Size = new System.Drawing.Size(129, 20);
             this.txtIlha.TabIndex = 14;
+            this.txtIlha.TextChanged += new System.EventHandler(this.txtIlha_TextChanged);
             // 
             // label2
             // 
@@ -251,6 +257,7 @@
             // 
             // btnIlha
             // 
+            this.btnIlha.Enabled = false;
             this.btnIlha.Location = new System.Drawing.Point(910, 258);
             this.btnIlha.Name = "btnIlha";
             this.btnIlha.Size = new System.Drawing.Size(75, 23);
@@ -313,6 +320,24 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Verificar Vez";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImage = global::Ben10.Properties.Resources.bode4;
+            this.panel2.Location = new System.Drawing.Point(74, 6);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(28, 138);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Ben10.Properties.Resources.b10;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(6, 29);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(105, 144);
+            this.panel1.TabIndex = 0;
+            // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,6 +365,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.grpCartas.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +401,7 @@
         private System.Windows.Forms.Button btnVez;
         private System.Windows.Forms.ListBox lstVez;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

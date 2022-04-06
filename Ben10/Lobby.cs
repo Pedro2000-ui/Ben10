@@ -18,6 +18,7 @@ namespace Ben10
         public string nomeJogador;
         public string[] jogadores;
         public int id;
+        List<Panel> bodes;
         List<Panel> cartas;
         List<Label> numCartas;
         public int xCarta;
@@ -36,6 +37,7 @@ namespace Ben10
             this.jogadores = jogadores.Split('\n');
             cartas = new List<Panel>();
             numCartas = new List<Label>();
+            bodes = new List<Panel>();
             this.xCarta = 6;
             this.yCarta = 29;
             InitializeComponent();
@@ -98,8 +100,10 @@ namespace Ben10
 
         private void btnCartas_Click(object sender, EventArgs e)
         {
+            bodes.Clear();
             numCartas.Clear();
             cartas.Clear();
+            grpCartas.Controls.Clear();
             string retorno = Jogo.VerificarMao(Convert.ToInt32(this.idJogador), this.senhaJogador);
             if (retorno.Contains("ERRO"))
             {
@@ -110,7 +114,7 @@ namespace Ben10
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] itensString = retorno.Split('\n');
             int[] itens = new int[itensString.Length];
-            int[] bodesSizeHeigth = new int[itens.Length];
+            int[] bodesSizeHeight = new int[itens.Length];
             string[] imagem = new string[itens.Length];
             const int bodesSizeWidth = 28;
             for (int i = 0; i <= itensString.Length - 1; i++) //apenas para converter o array de string em um array de int
@@ -118,13 +122,13 @@ namespace Ben10
                 itens[i] = Convert.ToInt32(itensString[i]);
                 //Verificação para Atribuir número de Bodes
                 if (itens[i] < 50 && itens[i] % 10 == 0) //Múltiplos de 10 até o número 49
-                    bodesSizeHeigth[i] = 5 * bodesSizeWidth; //Serão mostrados cinco Bodes
+                    bodesSizeHeight[i] = 5 * bodesSizeWidth;
                 else if (itens[i] % 5 == 0) //Múltiplos de 5
-                    bodesSizeHeigth[i] = 3 * bodesSizeWidth; //Serão mostrados três bodes
+                    bodesSizeHeight[i] = 3 * bodesSizeWidth; //Serão mostrados três bodes
                 else if (itens[i] % 4 == 0) //Múltiplos de 4
-                    bodesSizeHeigth[i] = 2 * bodesSizeWidth; //Serão mostrados dois bodes
+                    bodesSizeHeight[i] = 2 * bodesSizeWidth; //Serão mostrados dois bodes
                 else
-                    bodesSizeHeigth[i] = 28; //Será mostrado um bode
+                    bodesSizeHeight[i] = 28; //Será mostrado um bode
                 //Verificações para Atribuir Layout da Carta
                 if (itens[i] <= 5)
                     imagem[i] = "5";
@@ -147,6 +151,13 @@ namespace Ben10
                 else
                     imagem[i] = "9";
                 
+                Panel bodeBaixo = new Panel();
+                bodeBaixo.BackColor = Color.Transparent;
+                bodeBaixo.Size = new Size(bodesSizeWidth, bodesSizeHeight[i]);
+                bodeBaixo.Name = "panelBode" + (i + 1);
+                bodeBaixo.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+                bodeBaixo.Location = new Point(74, 6);
+                bodes.Add(bodeBaixo);
                 Label numCarta = new Label();
                 numCarta.AutoSize = true;
                 numCarta.BackColor = Color.Transparent;
@@ -160,6 +171,7 @@ namespace Ben10
                 numCartas.Add(numCarta);
                 Panel carta = new Panel();
                 carta.Controls.Add(numCartas[i]);
+                carta.Controls.Add(bodes[i]);
                 carta.Location = new Point(this.xCarta, this.yCarta);
                 carta.Name = "panel" + (i + 1);
                 carta.Size = new Size(105, 144);
@@ -178,11 +190,7 @@ namespace Ben10
             //reseta as posições para os valores iniciais
             this.xCarta = 6; 
             this.yCarta = 29;
-           
         }
-
-
-
         private void btnVez_Click(object sender, EventArgs e)
         {
             string retorno = Jogo.VerificarVez(this.id);
@@ -190,9 +198,9 @@ namespace Ben10
             if (retorno.Contains("ERRO"))
             {
                 MessageBox.Show(retorno);
+                return;
             }
             lstVez.Items.Add(retorno);
-            
         }
 
         private void btnJogar_Click(object sender, EventArgs e)
@@ -207,6 +215,7 @@ namespace Ben10
                 if (retorno.Contains("ERRO"))
                 {
                     MessageBox.Show(retorno);
+                    return;
                 }
                 MessageBox.Show("Carta Jogada com sucesso!");
                 txtJogarCarta.Text = "";
@@ -220,9 +229,9 @@ namespace Ben10
             if (retorno.Contains("ERRO"))
             {
                 MessageBox.Show(retorno);
+                return;
             }
             lstVerificarIlha.Items.Add(retorno);
-            
         }
 
         private void btnIlha_Click(object sender, EventArgs e)
@@ -237,11 +246,20 @@ namespace Ben10
                 if (retorno.Contains("ERRO"))
                 {
                     MessageBox.Show(retorno);
+                    return;
                 }
                 txtIlha.Text = "";
             }
-            
-            
+        }
+
+        private void txtIlha_TextChanged(object sender, EventArgs e)
+        {
+            if(txtIlha.Text == "")
+            {
+                btnIlha.Enabled = false;
+                return;
+            }
+            btnIlha.Enabled = true;
         }
     }
 }
