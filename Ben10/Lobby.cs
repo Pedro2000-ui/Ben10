@@ -181,5 +181,67 @@ namespace Ben10
            
         }
 
+
+
+        private void btnVez_Click(object sender, EventArgs e)
+        {
+            string retorno = Jogo.VerificarVez(this.id);
+            lstVez.Items.Clear();
+            if (retorno.Contains("ERRO"))
+            {
+                MessageBox.Show(retorno);
+            }
+            lstVez.Items.Add(retorno);
+            
+        }
+
+        private void btnJogar_Click(object sender, EventArgs e)
+        {
+            if (txtJogarCarta.Text == "")
+            {
+                MessageBox.Show("Insira o Número da Carta!");
+            }
+            else
+            {
+                string retorno = Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(txtJogarCarta.Text));
+                if (retorno.Contains("ERRO"))
+                {
+                    MessageBox.Show(retorno);
+                }
+                MessageBox.Show("Carta Jogada com sucesso!");
+                txtJogarCarta.Text = "";
+            }
+        }
+
+        private void btnVerificaIlha_Click(object sender, EventArgs e)
+        {
+            string retorno = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador);
+            lstVerificarIlha.Items.Clear();
+            if (retorno.Contains("ERRO"))
+            {
+                MessageBox.Show(retorno);
+            }
+            lstVerificarIlha.Items.Add(retorno);
+            
+        }
+
+        private void btnIlha_Click(object sender, EventArgs e)
+        {
+            if (txtIlha.Text == "")
+            {
+                MessageBox.Show("Insira o valor da ilha!");
+            }
+            else
+            {
+                string retorno = Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(txtIlha.Text));
+                if (retorno.Contains("ERRO"))
+                {
+                    MessageBox.Show(retorno);
+                }
+                txtIlha.Text = "";
+            }
+            
+            
+        }
     }
 }

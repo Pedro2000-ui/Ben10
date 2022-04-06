@@ -78,5 +78,10 @@ namespace Ben10
                 MessageBox.Show("Selecione uma Partida!");
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

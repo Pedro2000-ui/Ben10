@@ -43,6 +43,18 @@
             this.btnHistorico = new System.Windows.Forms.Button();
             this.btnCartas = new System.Windows.Forms.Button();
             this.grpCartas = new System.Windows.Forms.GroupBox();
+            this.txtJogarCarta = new System.Windows.Forms.TextBox();
+            this.txtIlha = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnJogar = new System.Windows.Forms.Button();
+            this.btnIlha = new System.Windows.Forms.Button();
+            this.lstVerificarIlha = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnVerificaIlha = new System.Windows.Forms.Button();
+            this.btnVez = new System.Windows.Forms.Button();
+            this.lstVez = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -195,11 +207,129 @@
             this.grpCartas.TabStop = false;
             this.grpCartas.Text = "Cartas da Mão";
             // 
+            // txtJogarCarta
+            // 
+            this.txtJogarCarta.Location = new System.Drawing.Point(856, 83);
+            this.txtJogarCarta.Name = "txtJogarCarta";
+            this.txtJogarCarta.Size = new System.Drawing.Size(129, 20);
+            this.txtJogarCarta.TabIndex = 13;
+            // 
+            // txtIlha
+            // 
+            this.txtIlha.Location = new System.Drawing.Point(856, 232);
+            this.txtIlha.Name = "txtIlha";
+            this.txtIlha.Size = new System.Drawing.Size(129, 20);
+            this.txtIlha.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(784, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Carta";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(784, 239);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Ilha";
+            // 
+            // btnJogar
+            // 
+            this.btnJogar.Location = new System.Drawing.Point(910, 109);
+            this.btnJogar.Name = "btnJogar";
+            this.btnJogar.Size = new System.Drawing.Size(75, 23);
+            this.btnJogar.TabIndex = 16;
+            this.btnJogar.Text = "Jogar";
+            this.btnJogar.UseVisualStyleBackColor = true;
+            this.btnJogar.Click += new System.EventHandler(this.btnJogar_Click);
+            // 
+            // btnIlha
+            // 
+            this.btnIlha.Location = new System.Drawing.Point(910, 258);
+            this.btnIlha.Name = "btnIlha";
+            this.btnIlha.Size = new System.Drawing.Size(75, 23);
+            this.btnIlha.TabIndex = 17;
+            this.btnIlha.Text = "Definir ilha";
+            this.btnIlha.UseVisualStyleBackColor = true;
+            this.btnIlha.Click += new System.EventHandler(this.btnIlha_Click);
+            // 
+            // lstVerificarIlha
+            // 
+            this.lstVerificarIlha.FormattingEnabled = true;
+            this.lstVerificarIlha.Location = new System.Drawing.Point(856, 164);
+            this.lstVerificarIlha.Name = "lstVerificarIlha";
+            this.lstVerificarIlha.Size = new System.Drawing.Size(129, 17);
+            this.lstVerificarIlha.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(784, 168);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Verificar Ilha";
+            // 
+            // btnVerificaIlha
+            // 
+            this.btnVerificaIlha.Location = new System.Drawing.Point(910, 187);
+            this.btnVerificaIlha.Name = "btnVerificaIlha";
+            this.btnVerificaIlha.Size = new System.Drawing.Size(75, 23);
+            this.btnVerificaIlha.TabIndex = 20;
+            this.btnVerificaIlha.Text = "Verificar";
+            this.btnVerificaIlha.UseVisualStyleBackColor = true;
+            this.btnVerificaIlha.Click += new System.EventHandler(this.btnVerificaIlha_Click);
+            // 
+            // btnVez
+            // 
+            this.btnVez.Location = new System.Drawing.Point(910, 41);
+            this.btnVez.Name = "btnVez";
+            this.btnVez.Size = new System.Drawing.Size(75, 23);
+            this.btnVez.TabIndex = 21;
+            this.btnVez.Text = "Verificar vez";
+            this.btnVez.UseVisualStyleBackColor = true;
+            this.btnVez.Click += new System.EventHandler(this.btnVez_Click);
+            // 
+            // lstVez
+            // 
+            this.lstVez.FormattingEnabled = true;
+            this.lstVez.Location = new System.Drawing.Point(856, 12);
+            this.lstVez.Name = "lstVez";
+            this.lstVez.Size = new System.Drawing.Size(129, 17);
+            this.lstVez.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(784, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Verificar Vez";
+            // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 474);
+            this.ClientSize = new System.Drawing.Size(1008, 500);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lstVez);
+            this.Controls.Add(this.btnVez);
+            this.Controls.Add(this.btnVerificaIlha);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lstVerificarIlha);
+            this.Controls.Add(this.btnIlha);
+            this.Controls.Add(this.btnJogar);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtIlha);
+            this.Controls.Add(this.txtJogarCarta);
             this.Controls.Add(this.btnCartas);
             this.Controls.Add(this.grpCartas);
             this.Controls.Add(this.groupBox2);
@@ -211,6 +341,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -231,5 +362,17 @@
         private System.Windows.Forms.Button btnHistorico;
         private System.Windows.Forms.Button btnCartas;
         private System.Windows.Forms.GroupBox grpCartas;
+        private System.Windows.Forms.TextBox txtJogarCarta;
+        private System.Windows.Forms.TextBox txtIlha;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnJogar;
+        private System.Windows.Forms.Button btnIlha;
+        private System.Windows.Forms.ListBox lstVerificarIlha;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnVerificaIlha;
+        private System.Windows.Forms.Button btnVez;
+        private System.Windows.Forms.ListBox lstVez;
+        private System.Windows.Forms.Label label7;
     }
 }
