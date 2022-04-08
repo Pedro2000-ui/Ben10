@@ -74,7 +74,7 @@ namespace Ben10
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
             string retorno = Jogo.IniciarPartida(Convert.ToInt32(this.idJogador), this.senhaJogador);
-            if (retorno.Contains("ERRO"))
+            if (retorno.StartsWith("ERRO"))
                 MessageBox.Show(retorno);
             else
             {
@@ -105,7 +105,7 @@ namespace Ben10
             cartas.Clear();
             grpCartas.Controls.Clear();
             string retorno = Jogo.VerificarMao(Convert.ToInt32(this.idJogador), this.senhaJogador);
-            if (retorno.Contains("ERRO"))
+            if (retorno.StartsWith("ERRO"))
             {
                 MessageBox.Show(retorno, "Para verificar a mão é necessário iniciar a partida!!!");
                 return;
@@ -195,7 +195,7 @@ namespace Ben10
         {
             string retorno = Jogo.VerificarVez(this.id);
             lstVez.Items.Clear();
-            if (retorno.Contains("ERRO"))
+            if (retorno.StartsWith("ERRO"))
             {
                 MessageBox.Show(retorno);
                 return;
@@ -212,12 +212,14 @@ namespace Ben10
             else
             {
                 string retorno = Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(txtJogarCarta.Text));
-                if (retorno.Contains("ERRO"))
+                if (retorno.StartsWith("ERRO"))
                 {
                     MessageBox.Show(retorno);
-                    return;
                 }
-                MessageBox.Show("Carta Jogada com sucesso!");
+                else
+                {
+                    MessageBox.Show("Carta Jogada com sucesso!");
+                }                
                 txtJogarCarta.Text = "";
             }
         }
@@ -226,35 +228,46 @@ namespace Ben10
         {
             string retorno = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador);
             lstVerificarIlha.Items.Clear();
-            if (retorno.Contains("ERRO"))
+            if (retorno.StartsWith("ERRO"))
             {
                 MessageBox.Show(retorno);
                 return;
             }
-            lstVerificarIlha.Items.Add(retorno);
+            else
+            {
+                lstVerificarIlha.Items.Add(retorno);
+            }
         }
 
         private void btnIlha_Click(object sender, EventArgs e)
         {
-            if (txtIlha.Text == "")
+            string vez = Jogo.VerificarVez(this.id);
+            if(vez.Contains(",I"))
             {
-                MessageBox.Show("Insira o valor da ilha!");
+                if (txtIlha.Text == "")
+                            {
+                                MessageBox.Show("Insira o valor da ilha!");
+                            }
+                            else
+                            {
+                                string retorno = Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(txtIlha.Text));
+                                if (retorno.StartsWith("ERRO"))
+                                {
+                                    MessageBox.Show(retorno);
+                                }
+                                txtIlha.Text = "";
+                            }
             }
             else
             {
-                string retorno = Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(txtIlha.Text));
-                if (retorno.Contains("ERRO"))
-                {
-                    MessageBox.Show(retorno);
-                    return;
-                }
-                txtIlha.Text = "";
+                MessageBox.Show("Não é a hora de definir a ilha!");
             }
+            
         }
 
         private void txtIlha_TextChanged(object sender, EventArgs e)
         {
-            if(txtIlha.Text == "")
+            if (txtIlha.Text.Trim() == " ")
             {
                 btnIlha.Enabled = false;
                 return;
