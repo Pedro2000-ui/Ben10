@@ -24,68 +24,8 @@ namespace Ben10
         List<Label> numCartas;
         public int xCarta;
         public int yCarta;
-       
-        public Lobby(string retorno, string nome, string jogadores, int id)
-        {
-            string[] itens = retorno.Split(',');
-            this.idJogador = itens[0];
-            this.senhaJogador = itens[1];
-            this.nomeJogador = nome;
-            this.id = id;
-            jogadores = jogadores.Replace("\r", "");
-            jogadores = jogadores.Replace(',', ' ');
-            jogadores = jogadores.Substring(0, jogadores.Length - 1);
-            this.jogadores = jogadores.Split('\n');
-            cartas = new List<Panel>();
-            numCartas = new List<Label>();
-            bodesBaixo = new List<Panel>();
-            bodesCima = new List<Panel>();
-            this.xCarta = 6;
-            this.yCarta = 29;
-            InitializeComponent();
-        }
 
-        private void Lobby_Load(object sender, EventArgs e)
-        {
-            lblNome.Text = this.nomeJogador;
-            lblID.Text = this.idJogador;
-            lblSenha.Text = this.senhaJogador;
-
-            for (int i = 0; i < this.jogadores.Length; i++)
-            {
-                lstJogadores.Items.Add(this.jogadores[i]);
-            }
-        }
-
-        private void btnListar_Click(object sender, EventArgs e)
-        {
-            string jogadores = Jogo.ListarJogadores(this.id);
-            jogadores = jogadores.Replace("\r", "");
-            jogadores = jogadores.Replace(',', ' ');
-            jogadores = jogadores.Substring(0, jogadores.Length - 1);
-            this.jogadores = jogadores.Split('\n');
-
-
-            lstJogadores.Items.Clear();
-            for (int i = 0; i < this.jogadores.Length; i++)
-            {
-                lstJogadores.Items.Add(this.jogadores[i]);
-            }
-        }
-
-        private void btnIniciarPartida_Click(object sender, EventArgs e)
-        {
-            string retorno = Jogo.IniciarPartida(Convert.ToInt32(this.idJogador), this.senhaJogador);
-            if (retorno.StartsWith("ERRO"))
-                MessageBox.Show(retorno);
-            else
-            {
-                MessageBox.Show("Partida iniciada com sucesso!");
-                btnIniciarPartida.Enabled = false;
-            }
-        }
-
-        private void btnHistorico_Click(object sender, EventArgs e)
+        public void listarHistorico()
         {
             lstHistorico.Items.Clear();
 
@@ -99,8 +39,7 @@ namespace Ben10
                 lstHistorico.Items.Add(historico[i]);
             }
         }
-
-        private void btnCartas_Click(object sender, EventArgs e)
+        public void listarCartas()
         {
             bodesCima.Clear();
             bodesBaixo.Clear();
@@ -165,7 +104,7 @@ namespace Ben10
                     imagem[i] = "4";
                 else
                     imagem[i] = "9";
-                
+
                 Panel bodeBaixo = new Panel();
                 bodeBaixo.BackColor = Color.Transparent;
                 bodeBaixo.Size = new Size(bodesSizeHeight[i], bodesSizeWidth);
@@ -198,8 +137,75 @@ namespace Ben10
                 }
             }
             //reseta as posições para os valores iniciais
-            this.xCarta = 6; 
+            this.xCarta = 6;
             this.yCarta = 29;
+        }
+       
+        public Lobby(string retorno, string nome, string jogadores, int id)
+        {
+            string[] itens = retorno.Split(',');
+            this.idJogador = itens[0];
+            this.senhaJogador = itens[1];
+            this.nomeJogador = nome;
+            this.id = id;
+            jogadores = jogadores.Replace("\r", "");
+            jogadores = jogadores.Replace(',', ' ');
+            jogadores = jogadores.Substring(0, jogadores.Length - 1);
+            this.jogadores = jogadores.Split('\n');
+            cartas = new List<Panel>();
+            numCartas = new List<Label>();
+            bodesBaixo = new List<Panel>();
+            bodesCima = new List<Panel>();
+            this.xCarta = 6;
+            this.yCarta = 29;
+            InitializeComponent();
+        }
+
+        private void Lobby_Load(object sender, EventArgs e)
+        {
+            lblNome.Text = this.nomeJogador;
+            lblID.Text = this.idJogador;
+            lblSenha.Text = this.senhaJogador;
+
+            for (int i = 0; i < this.jogadores.Length; i++)
+            {
+                lstJogadores.Items.Add(this.jogadores[i]);
+            }
+            this.listarHistorico();
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            string jogadores = Jogo.ListarJogadores(this.id);
+            jogadores = jogadores.Replace("\r", "");
+            jogadores = jogadores.Replace(',', ' ');
+            jogadores = jogadores.Substring(0, jogadores.Length - 1);
+            this.jogadores = jogadores.Split('\n');
+
+
+            lstJogadores.Items.Clear();
+            for (int i = 0; i < this.jogadores.Length; i++)
+            {
+                lstJogadores.Items.Add(this.jogadores[i]);
+            }
+        }
+
+        private void btnIniciarPartida_Click(object sender, EventArgs e)
+        {
+            string retorno = Jogo.IniciarPartida(Convert.ToInt32(this.idJogador), this.senhaJogador);
+            if (retorno.StartsWith("ERRO"))
+                MessageBox.Show(retorno);
+            else
+            {
+                MessageBox.Show("Partida iniciada com sucesso!");
+                btnIniciarPartida.Enabled = false;
+                this.listarHistorico();
+                this.listarCartas();
+            }
+        }
+        private void btnCartas_Click(object sender, EventArgs e)
+        {
+            this.listarCartas();
         }
         private void btnVez_Click(object sender, EventArgs e)
         {
@@ -225,12 +231,12 @@ namespace Ben10
                 if (retorno.StartsWith("ERRO"))
                 {
                     MessageBox.Show(retorno);
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show("Carta Jogada com sucesso!");
-                }                
                 txtJogarCarta.Text = "";
+                this.listarHistorico();
+                MessageBox.Show("Sucesso ao jogar!");
+                this.listarCartas();
             }
         }
 
@@ -266,13 +272,13 @@ namespace Ben10
                         MessageBox.Show(retorno);
                     }
                     txtIlha.Text = "";
+                    this.listarHistorico();
                 }
             }
             else
             {
                 MessageBox.Show("Não é a hora de definir a ilha!");
             }
-            
         }
 
         private void txtIlha_TextChanged(object sender, EventArgs e)
@@ -285,9 +291,9 @@ namespace Ben10
             btnIlha.Enabled = true;
         }
 
-        private void grpCartas_Enter(object sender, EventArgs e)
+        private void btnHistorico_Click(object sender, EventArgs e)
         {
-
+            this.listarHistorico();
         }
     }
 }

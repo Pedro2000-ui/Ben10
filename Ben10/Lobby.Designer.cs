@@ -43,8 +43,6 @@
             this.btnHistorico = new System.Windows.Forms.Button();
             this.btnCartas = new System.Windows.Forms.Button();
             this.grpCartas = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.txtJogarCarta = new System.Windows.Forms.TextBox();
             this.txtIlha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,11 +55,8 @@
             this.btnVez = new System.Windows.Forms.Button();
             this.lstVez = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.grpCartas.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstJogadores
@@ -205,33 +200,12 @@
             // 
             // grpCartas
             // 
-            this.grpCartas.Controls.Add(this.panel1);
             this.grpCartas.Location = new System.Drawing.Point(326, 12);
             this.grpCartas.Name = "grpCartas";
             this.grpCartas.Size = new System.Drawing.Size(452, 377);
             this.grpCartas.TabIndex = 11;
             this.grpCartas.TabStop = false;
             this.grpCartas.Text = "Cartas da Mão";
-            this.grpCartas.Enter += new System.EventHandler(this.grpCartas_Enter);
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::Ben10.Properties.Resources.b10;
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(6, 29);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(105, 144);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImage = global::Ben10.Properties.Resources.bode4;
-            this.panel2.Location = new System.Drawing.Point(3, 113);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(28, 28);
-            this.panel2.TabIndex = 1;
             // 
             // txtJogarCarta
             // 
@@ -341,15 +315,6 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Verificar Vez";
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.BackgroundImage = global::Ben10.Properties.Resources.bode4;
-            this.panel3.Location = new System.Drawing.Point(3, 88);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(28, 28);
-            this.panel3.TabIndex = 2;
-            // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,8 +342,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.grpCartas.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,8 +376,5 @@
         private System.Windows.Forms.Button btnVez;
         private System.Windows.Forms.ListBox lstVez;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
     }
 }
