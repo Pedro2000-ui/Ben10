@@ -25,6 +25,29 @@ namespace Ben10
         public int xCarta;
         public int yCarta;
 
+        public void listarMesa()
+        {
+            lstMesa.Items.Clear();
+            string retorno;
+            if (txtRodada.Text == "")
+                retorno = Jogo.VerificarMesa(this.id);
+            else
+                retorno = Jogo.VerificarMesa(this.id, Convert.ToInt32(txtRodada.Text));
+            if (retorno.StartsWith("ERRO"))
+            {
+                MessageBox.Show(retorno);
+                return;
+            }
+            retorno = retorno.Replace("\r", "");
+            retorno = retorno.Substring(0, retorno.Length - 1);
+            string[] mesa = retorno.Split('\n');
+
+            for (int i = 0; i < mesa.Length; i++)
+            {
+                lstMesa.Items.Add(mesa[i]);
+            }
+        }
+        
         public void listarHistorico()
         {
             lstHistorico.Items.Clear();
@@ -237,6 +260,7 @@ namespace Ben10
                 this.listarHistorico();
                 MessageBox.Show("Sucesso ao jogar!");
                 this.listarCartas();
+                this.listarMesa();
             }
         }
 
@@ -273,6 +297,7 @@ namespace Ben10
                     }
                     txtIlha.Text = "";
                     this.listarHistorico();
+                    this.listarMesa();
                 }
             }
             else
@@ -294,6 +319,11 @@ namespace Ben10
         private void btnHistorico_Click(object sender, EventArgs e)
         {
             this.listarHistorico();
+        }
+
+        private void btnMesa_Click(object sender, EventArgs e)
+        {
+            this.listarMesa();
         }
     }
 }

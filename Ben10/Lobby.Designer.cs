@@ -55,6 +55,10 @@
             this.btnVez = new System.Windows.Forms.Button();
             this.lstVez = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.lstMesa = new System.Windows.Forms.ListBox();
+            this.btnMesa = new System.Windows.Forms.Button();
+            this.txtRodada = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -165,7 +169,7 @@
             this.groupBox2.Controls.Add(this.btnHistorico);
             this.groupBox2.Location = new System.Drawing.Point(18, 215);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(279, 247);
+            this.groupBox2.Size = new System.Drawing.Size(279, 413);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Histórico";
@@ -173,14 +177,14 @@
             // lstHistorico
             // 
             this.lstHistorico.FormattingEnabled = true;
-            this.lstHistorico.Location = new System.Drawing.Point(6, 19);
+            this.lstHistorico.Location = new System.Drawing.Point(12, 23);
             this.lstHistorico.Name = "lstHistorico";
-            this.lstHistorico.Size = new System.Drawing.Size(267, 186);
+            this.lstHistorico.Size = new System.Drawing.Size(267, 355);
             this.lstHistorico.TabIndex = 12;
             // 
             // btnHistorico
             // 
-            this.btnHistorico.Location = new System.Drawing.Point(188, 218);
+            this.btnHistorico.Location = new System.Drawing.Point(188, 384);
             this.btnHistorico.Name = "btnHistorico";
             this.btnHistorico.Size = new System.Drawing.Size(85, 23);
             this.btnHistorico.TabIndex = 12;
@@ -315,11 +319,50 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Verificar Vez";
             // 
+            // lstMesa
+            // 
+            this.lstMesa.FormattingEnabled = true;
+            this.lstMesa.Location = new System.Drawing.Point(326, 395);
+            this.lstMesa.Name = "lstMesa";
+            this.lstMesa.Size = new System.Drawing.Size(178, 238);
+            this.lstMesa.TabIndex = 23;
+            // 
+            // btnMesa
+            // 
+            this.btnMesa.Location = new System.Drawing.Point(510, 603);
+            this.btnMesa.Name = "btnMesa";
+            this.btnMesa.Size = new System.Drawing.Size(97, 30);
+            this.btnMesa.TabIndex = 24;
+            this.btnMesa.Text = "Mesa";
+            this.btnMesa.UseVisualStyleBackColor = true;
+            this.btnMesa.Click += new System.EventHandler(this.btnMesa_Click);
+            // 
+            // txtRodada
+            // 
+            this.txtRodada.Location = new System.Drawing.Point(561, 544);
+            this.txtRodada.Name = "txtRodada";
+            this.txtRodada.Size = new System.Drawing.Size(100, 20);
+            this.txtRodada.TabIndex = 25;
+            this.txtRodada.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(510, 547);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Rodada";
+            // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 500);
+            this.ClientSize = new System.Drawing.Size(1008, 640);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtRodada);
+            this.Controls.Add(this.btnMesa);
+            this.Controls.Add(this.lstMesa);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lstVez);
             this.Controls.Add(this.btnVez);
@@ -376,5 +419,9 @@
         private System.Windows.Forms.Button btnVez;
         private System.Windows.Forms.ListBox lstVez;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox lstMesa;
+        private System.Windows.Forms.Button btnMesa;
+        private System.Windows.Forms.TextBox txtRodada;
+        private System.Windows.Forms.Label label8;
     }
 }
