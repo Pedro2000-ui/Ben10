@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lstJogadores = new System.Windows.Forms.ListBox();
             this.btnListar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,6 +60,8 @@
             this.btnMesa = new System.Windows.Forms.Button();
             this.txtRodada = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnJogarSozinho = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -354,11 +357,27 @@
             this.label8.TabIndex = 26;
             this.label8.Text = "Rodada";
             // 
+            // btnJogarSozinho
+            // 
+            this.btnJogarSozinho.Location = new System.Drawing.Point(681, 455);
+            this.btnJogarSozinho.Name = "btnJogarSozinho";
+            this.btnJogarSozinho.Size = new System.Drawing.Size(97, 30);
+            this.btnJogarSozinho.TabIndex = 27;
+            this.btnJogarSozinho.Text = "Jogar Sozinho";
+            this.btnJogarSozinho.UseVisualStyleBackColor = true;
+            this.btnJogarSozinho.Click += new System.EventHandler(this.btnJogarSozinho_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 640);
+            this.Controls.Add(this.btnJogarSozinho);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtRodada);
             this.Controls.Add(this.btnMesa);
@@ -423,5 +442,7 @@
         private System.Windows.Forms.Button btnMesa;
         private System.Windows.Forms.TextBox txtRodada;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnJogarSozinho;
+        private System.Windows.Forms.Timer timer1;
     }
 }

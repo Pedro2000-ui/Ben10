@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BodeOfWarServer;
+using System.Threading;
 
 namespace Ben10
 {
@@ -62,7 +63,7 @@ namespace Ben10
                 lstHistorico.Items.Add(historico[i]);
             }
         }
-        public void listarCartas()
+        public int[] listarCartas()
         {
             bodesCima.Clear();
             bodesBaixo.Clear();
@@ -73,7 +74,7 @@ namespace Ben10
             if (retorno.StartsWith("ERRO"))
             {
                 MessageBox.Show(retorno, "Para verificar a mão é necessário iniciar a partida!!!");
-                return;
+                return null;
             }
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Substring(0, retorno.Length - 1);
@@ -85,6 +86,7 @@ namespace Ben10
             int j = 0;
             for (int i = 0; i <= itensString.Length - 1; i++) //apenas para converter o array de string em um array de int
             {
+                Thread.Sleep(1500);
                 Panel carta = new Panel();
                 itens[i] = Convert.ToInt32(itensString[i]);
                 //Verificação para Atribuir número de Bodes
@@ -162,6 +164,7 @@ namespace Ben10
             //reseta as posições para os valores iniciais
             this.xCarta = 6;
             this.yCarta = 29;
+            return itens;
         }
        
         public Lobby(string retorno, string nome, string jogadores, int id)
@@ -324,6 +327,36 @@ namespace Ben10
         private void btnMesa_Click(object sender, EventArgs e)
         {
             this.listarMesa();
+        }
+        private void btnJogarSozinho_Click(object sender, EventArgs e)
+        {
+            //ativa o timer e o timer faz o código abaixo
+            timer1.Enabled = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string retorno = Jogo.VerificarVez(this.id);
+            if(retorno.Contains("ERRO"))
+            {
+                timer1.Enabled = false;
+                return;
+            }
+            string[] itens = retorno.Split(',');
+            if (itens[1] == this.idJogador)
+            {
+                if (retorno.Contains("B")) {
+                    int[] cartas = this.listarCartas();
+                    Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, cartas[0]);
+                    this.listarCartas();
+                }
+                else {
+                    string[] ilha = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador).Split(',');
+                    Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(ilha[1]));
+                }
+                this.listarMesa();
+                this.listarHistorico();
+            }
         }
     }
 }
