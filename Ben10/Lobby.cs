@@ -76,11 +76,10 @@ namespace Ben10
                MessageBox.Show(retorno);
                return null;
             }
-            retorno = retorno.Replace("\r", "");
-            retorno = retorno.Substring(0, retorno.Length - 1);
-            string[] itensString = retorno.Split('\n');
-            if (itensString.Length > 0) //Todo: Melhorar Lógica (tentar pela variável "retorno")
-            {
+            if(retorno.Length > 0) { 
+                retorno = retorno.Replace("\r", "");
+                retorno = retorno.Substring(0, retorno.Length - 1);
+                string[] itensString = retorno.Split('\n');
                 int[] itens = new int[itensString.Length];
                 int[] bodesSizeHeight = new int[itens.Length];
                 string[] imagem = new string[itens.Length];
@@ -350,11 +349,8 @@ namespace Ben10
             {
                 if (retorno.Contains("B")) {
                     int[] cartas = this.listarCartas();
-                    if (cartas.Length > 0)
-                    {
-                        Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, cartas[0]);
-                        this.listarCartas();
-                    }
+                    Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, cartas[0]);
+                    this.listarCartas();
                 }
                 else {
                     string[] ilha = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador).Split(',');
