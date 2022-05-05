@@ -346,7 +346,6 @@
             this.txtRodada.Name = "txtRodada";
             this.txtRodada.Size = new System.Drawing.Size(100, 20);
             this.txtRodada.TabIndex = 25;
-            this.txtRodada.Text = "0";
             // 
             // label8
             // 
