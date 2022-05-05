@@ -26,6 +26,15 @@ namespace Ben10
         public int xCarta;
         public int yCarta;
 
+
+        public string[] verificarMao()
+        {
+            string retorno = Jogo.VerificarMao(Convert.ToInt32(this.idJogador), this.senhaJogador);
+            retorno = retorno.Replace("\r", "");
+            retorno = retorno.Substring(0, retorno.Length - 1);
+            string[] itensString = retorno.Split('\n');
+            return itensString;
+        }
         public void listarMesa()
         {
             lstMesa.Items.Clear();
@@ -48,11 +57,9 @@ namespace Ben10
                 lstMesa.Items.Add(mesa[i]);
             }
         }
-        
         public void listarHistorico()
         {
             lstHistorico.Items.Clear();
-
             string retorno = Jogo.ExibirNarracao(this.id);
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Substring(0, retorno.Length - 1);
@@ -70,16 +77,14 @@ namespace Ben10
             numCartas.Clear();
             cartas.Clear();
             grpCartas.Controls.Clear();
-            string retorno = Jogo.VerificarMao(Convert.ToInt32(this.idJogador), this.senhaJogador);
-            if (retorno.StartsWith("ERRO"))
+            grpCartas.Visible = false;
+            string[] itensString = this.verificarMao();
+            if (itensString[0].StartsWith("ERRO"))
             {
-               MessageBox.Show(retorno);
+               MessageBox.Show(itensString[0]);
                return null;
             }
-            if(retorno.Length > 0) { 
-                retorno = retorno.Replace("\r", "");
-                retorno = retorno.Substring(0, retorno.Length - 1);
-                string[] itensString = retorno.Split('\n');
+            else if(itensString[0].Length > 0) {
                 int[] itens = new int[itensString.Length];
                 int[] bodesSizeHeight = new int[itens.Length];
                 string[] imagem = new string[itens.Length];
@@ -107,7 +112,7 @@ namespace Ben10
                     else if (itens[i] % 4 == 0) //Múltiplos de 4
                         bodesSizeHeight[i] = 2 * bodesSizeWidth; //Serão mostrados dois bodes
                     else
-                        bodesSizeHeight[i] = 28; //Será mostrado um bode
+                        bodesSizeHeight[i] = bodesSizeWidth; //Será mostrado um bode
                     //Verificações para Atribuir Layout da Carta
                     if (itens[i] <= 5)
                         imagem[i] = "5";
@@ -130,12 +135,6 @@ namespace Ben10
                     else
                         imagem[i] = "9";
 
-                    Panel bodeBaixo = new Panel();
-                    bodeBaixo.BackColor = Color.Transparent;
-                    bodeBaixo.Size = new Size(bodesSizeHeight[i], bodesSizeWidth);
-                    bodeBaixo.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
-                    bodeBaixo.Location = new Point(3, 113);
-                    bodesBaixo.Add(bodeBaixo);
                     Label numCarta = new Label();
                     numCarta.AutoSize = true;
                     numCarta.BackColor = Color.Transparent;
@@ -146,12 +145,18 @@ namespace Ben10
                     numCarta.Size = new Size(23, 16);
                     numCarta.Text = itensString[i];
                     numCartas.Add(numCarta);
+                    Panel bodeBaixo = new Panel();
+                    bodeBaixo.BackColor = Color.Transparent;
+                    bodeBaixo.Size = new Size(bodesSizeHeight[i], bodesSizeWidth);
+                    bodeBaixo.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+                    bodeBaixo.Location = new Point(3, 113);
+                    bodesBaixo.Add(bodeBaixo);
                     carta.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[i]);
                     carta.Size = new Size(105, 144);
                     carta.Name = "panel" + (i + 1);
                     carta.Location = new Point(this.xCarta, this.yCarta);
-                    carta.Controls.Add(numCartas[i]);
                     carta.Controls.Add(bodesBaixo[i]);
+                    carta.Controls.Add(numCartas[i]);
                     cartas.Add(carta);
                     grpCartas.Controls.Add(cartas[i]);
                     this.xCarta += 111;
@@ -164,6 +169,8 @@ namespace Ben10
                 //reseta as posições para os valores iniciais
                 this.xCarta = 6;
                 this.yCarta = 29;
+                Thread.Sleep(800);
+                grpCartas.Visible = true;
                 return itens;
             }
             return null;
@@ -188,7 +195,6 @@ namespace Ben10
             this.yCarta = 29;
             InitializeComponent();
         }
-
         private void Lobby_Load(object sender, EventArgs e)
         {
             lblNome.Text = this.nomeJogador;
@@ -348,8 +354,8 @@ namespace Ben10
             if (itens[1] == this.idJogador)
             {
                 if (retorno.Contains("B")) {
-                    int[] cartas = this.listarCartas();
-                    Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, cartas[0]);
+                    string[] cartas = this.verificarMao();
+                    Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(cartas[0]));
                     this.listarCartas();
                 }
                 else {
