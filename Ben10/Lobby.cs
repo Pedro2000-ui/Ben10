@@ -162,11 +162,7 @@ namespace Ben10
                     cartas.Add(carta);
                     grpCartas.Controls.Add(cartas[i]);
                     this.xCarta += 111;
-                    if (i == 3) //Se já tiverem 4 cartas criadas
-                    {
-                        this.yCarta = 203;
-                        this.xCarta = 6;
-                    }
+                    
                 }
                 //reseta as posições para os valores iniciais
                 this.xCarta = 6;
@@ -353,5 +349,7 @@ namespace Ben10
             }
             timer1.Enabled = true;
         }
+
+
     }
 }

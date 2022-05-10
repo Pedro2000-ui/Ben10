@@ -134,5 +134,22 @@
   <ItemGroup>
     <None Include="Resources\bode4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\1card.png" />
+    <Content Include="Resources\2cards.png" />
+    <Content Include="Resources\3cards.png" />
+    <Content Include="Resources\4cards.png" />
+    <Content Include="Resources\5cards.png" />
+    <Content Include="Resources\6cards.png" />
+    <Content Include="Resources\7cards.png" />
+    <Content Include="Resources\8cards.png" />
+    <None Include="Resources\ilha.png" />
+    <None Include="Resources\bolinhodecartaoficial.png" />
+    <None Include="Resources\8cards_L.png" />
+    <None Include="Resources\8cards_D.png" />
+    <None Include="Resources\8cards_R.png" />
+    <None Include="Resources\retangulo.png" />
+    <None Include="Resources\omnitrix.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
