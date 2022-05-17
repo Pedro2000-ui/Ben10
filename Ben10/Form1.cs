@@ -72,8 +72,10 @@ namespace Ben10
                     Lobby tela2 = new Lobby(retorno, txtJogador.Text, jogadores, this.id);
                     txtJogador.Text = "";
                     txtSenhaPartida2.Text = "";
+                    this.Visible = false;
                     tela2.ShowDialog();
                     Thread.Sleep(600);
+                    this.Visible = true;
                     this.listarPartidas();
                 }
             }

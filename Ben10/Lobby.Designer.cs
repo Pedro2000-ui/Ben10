@@ -58,6 +58,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblIlha = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -75,6 +81,7 @@
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -191,7 +198,7 @@
             this.groupBox2.Controls.Add(this.btnHistorico);
             this.groupBox2.Location = new System.Drawing.Point(18, 215);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(279, 413);
+            this.groupBox2.Size = new System.Drawing.Size(279, 479);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Histórico";
@@ -199,14 +206,14 @@
             // lstHistorico
             // 
             this.lstHistorico.FormattingEnabled = true;
-            this.lstHistorico.Location = new System.Drawing.Point(12, 23);
+            this.lstHistorico.Location = new System.Drawing.Point(6, 16);
             this.lstHistorico.Name = "lstHistorico";
-            this.lstHistorico.Size = new System.Drawing.Size(267, 355);
+            this.lstHistorico.Size = new System.Drawing.Size(267, 420);
             this.lstHistorico.TabIndex = 12;
             // 
             // btnHistorico
             // 
-            this.btnHistorico.Location = new System.Drawing.Point(188, 384);
+            this.btnHistorico.Location = new System.Drawing.Point(188, 450);
             this.btnHistorico.Name = "btnHistorico";
             this.btnHistorico.Size = new System.Drawing.Size(85, 23);
             this.btnHistorico.TabIndex = 12;
@@ -216,9 +223,9 @@
             // 
             // grpCartas
             // 
-            this.grpCartas.Location = new System.Drawing.Point(326, 448);
+            this.grpCartas.Location = new System.Drawing.Point(541, 448);
             this.grpCartas.Name = "grpCartas";
-            this.grpCartas.Size = new System.Drawing.Size(900, 187);
+            this.grpCartas.Size = new System.Drawing.Size(314, 240);
             this.grpCartas.TabIndex = 11;
             this.grpCartas.TabStop = false;
             this.grpCartas.Text = "Cartas da Mão";
@@ -316,7 +323,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 2000;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panel1
@@ -350,11 +357,17 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(93)))), ((int)(((byte)(67)))));
             this.panel2.Location = new System.Drawing.Point(-18, -7);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(338, 653);
+            this.panel2.Size = new System.Drawing.Size(338, 711);
             this.panel2.TabIndex = 29;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pictureBox7);
+            this.groupBox3.Controls.Add(this.lblIlha);
+            this.groupBox3.Controls.Add(this.panel6);
+            this.groupBox3.Controls.Add(this.panel5);
+            this.groupBox3.Controls.Add(this.panel4);
+            this.groupBox3.Controls.Add(this.panel3);
             this.groupBox3.Controls.Add(this.pictureBox6);
             this.groupBox3.Controls.Add(this.pictureBox5);
             this.groupBox3.Controls.Add(this.pictureBox4);
@@ -367,12 +380,63 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Mesa";
             // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(163, 167);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(68, 100);
+            this.panel3.TabIndex = 5;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(266, 167);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(68, 100);
+            this.panel4.TabIndex = 6;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(372, 167);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(68, 100);
+            this.panel5.TabIndex = 7;
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(481, 167);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(68, 100);
+            this.panel6.TabIndex = 6;
+            // 
+            // lblIlha
+            // 
+            this.lblIlha.AutoSize = true;
+            this.lblIlha.BackColor = System.Drawing.Color.Transparent;
+            this.lblIlha.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIlha.Location = new System.Drawing.Point(604, 332);
+            this.lblIlha.Name = "lblIlha";
+            this.lblIlha.Size = new System.Drawing.Size(55, 33);
+            this.lblIlha.TabIndex = 8;
+            this.lblIlha.Text = "I10";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox7.Image = global::Ben10.Properties.Resources.bolinhodecartaoficial;
+            this.pictureBox7.Location = new System.Drawing.Point(6, 305);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(120, 117);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 9;
+            this.pictureBox7.TabStop = false;
+            // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox6.Image = global::Ben10.Properties.Resources.ilha;
-            this.pictureBox6.Location = new System.Drawing.Point(549, 284);
+            this.pictureBox6.Location = new System.Drawing.Point(555, 284);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(150, 140);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -384,7 +448,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox5.Image = global::Ben10.Properties.Resources.bolinhodecartaoficial;
-            this.pictureBox5.Location = new System.Drawing.Point(305, 194);
+            this.pictureBox5.Location = new System.Drawing.Point(429, 307);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(120, 117);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -542,7 +606,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(151)))), ((int)(((byte)(117)))));
-            this.ClientSize = new System.Drawing.Size(1370, 640);
+            this.ClientSize = new System.Drawing.Size(1370, 707);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.grpCartas);
             this.Controls.Add(this.groupBox2);
@@ -559,6 +623,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -613,5 +679,11 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label lblIlha;
     }
 }
