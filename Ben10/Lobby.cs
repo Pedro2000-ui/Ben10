@@ -23,8 +23,30 @@ namespace Ben10
         List<Panel> bodesCima;
         List<Panel> cartas;
         List<Label> numCartas;
+        //List<Label> idJogs;
         public int xCarta;
         public int yCarta;
+        public int xCartaMesa;
+        public int yCartaMesa;
+
+        public Lobby(string retorno, string nome, string jogadores, int id)
+        {
+            string[] itens = retorno.Split(',');
+            this.idJogador = itens[0];
+            this.senhaJogador = itens[1];
+            this.nomeJogador = nome;
+            this.id = id;
+            jogadores = jogadores.Replace("\r", "");
+            jogadores = jogadores.Replace(',', ' ');
+            jogadores = jogadores.Substring(0, jogadores.Length - 1);
+            this.jogadores = jogadores.Split('\n');
+            cartas = new List<Panel>();
+            numCartas = new List<Label>();
+            bodesBaixo = new List<Panel>();
+            bodesCima = new List<Panel>();
+            //idJogs = new List<Label>();
+            InitializeComponent();
+        }
         public string[] verificarMao()
         {
             string retorno = Jogo.VerificarMao(Convert.ToInt32(this.idJogador), this.senhaJogador);
@@ -39,7 +61,13 @@ namespace Ben10
         }
         public void listarMesa()
         {
-            lstMesa.Items.Clear();
+            bodesCima.Clear();
+            bodesBaixo.Clear();
+            numCartas.Clear();
+            //idJogs.Clear();
+            cartas.Clear();
+            flpCartasMesa.Controls.Clear();
+            
             string retorno;
             if (txtRodada.Text == "")
                 retorno = Jogo.VerificarMesa(this.id);
@@ -51,12 +79,94 @@ namespace Ben10
                 return;
             }
             retorno = retorno.Replace("\r", "");
+            retorno = retorno.Replace("\n", ",");
             retorno = retorno.Substring(0, retorno.Length - 1);
-            string[] mesa = retorno.Split('\n');
-
-            for (int i = 0; i < mesa.Length; i++)
+            string[] mesa = retorno.Split(',');
+            if(mesa[0] == "")
+                lblIlha.Text = "I0";
+            else
+                lblIlha.Text = mesa[0];
+            List<string> imagem = new List<string>();
+            List<int> bodesSizeHeight = new List<int>();
+            const int bodesSizeWidth = 23;
+            int k = 0;
+            for (int i = 2; i < mesa.Length; i+= 2)
             {
-                lstMesa.Items.Add(mesa[i]);
+                Panel carta = new Panel();
+                for (int j = i / 2; j <= i / 2; j++)
+                {
+                    //Verificação para Atribuir número de Bodes
+                    if (Convert.ToInt32(mesa[i]) < 50 && Convert.ToInt32(mesa[i]) % 10 == 0) //Múltiplos de 10 até o número 49
+                    {
+                        bodesSizeHeight.Add(3 * bodesSizeWidth);
+                        Panel bodeCima = new Panel();
+                        bodeCima.BackColor = Color.Transparent;
+                        bodeCima.Size = new Size(2 * bodesSizeWidth, bodesSizeWidth);
+                        bodeCima.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+                        bodeCima.Location = new Point(0, 55);
+                        bodesCima.Add(bodeCima);
+                        carta.Controls.Add(bodesCima[k]);
+                        k++;
+                    }
+                    else if (Convert.ToInt32(mesa[i]) % 5 == 0) //Múltiplos de 5
+                        bodesSizeHeight.Add(3 * bodesSizeWidth); //Serão mostrados três bodes
+                    else if (Convert.ToInt32(mesa[i]) % 4 == 0) //Múltiplos de 4
+                        bodesSizeHeight.Add(2 * bodesSizeWidth); //Serão mostrados dois bodes
+                    else
+                        bodesSizeHeight.Add(bodesSizeWidth); //Será mostrado um bode
+                    //Verificações para Atribuir Layout da Carta
+                    if (Convert.ToInt32(mesa[i]) <= 5)
+                        imagem.Add("5");
+                    else if (Convert.ToInt32(mesa[i]) <= 10)
+                        imagem.Add("2");
+                    else if (Convert.ToInt32(mesa[i]) <= 15)
+                        imagem.Add("10");
+                    else if (Convert.ToInt32(mesa[i]) <= 20)
+                        imagem.Add("1");
+                    else if (Convert.ToInt32(mesa[i]) <= 25)
+                        imagem.Add("6");
+                    else if (Convert.ToInt32(mesa[i]) <= 30)
+                        imagem.Add("3");
+                    else if (Convert.ToInt32(mesa[i]) <= 35)
+                        imagem.Add("7");
+                    else if (Convert.ToInt32(mesa[i]) <= 40)
+                        imagem.Add("8");
+                    else if (Convert.ToInt32(mesa[i]) <= 45)
+                        imagem.Add("4");
+                    else
+                        imagem.Add("9");
+
+                    //Label idJog = new Label();
+                    //idJog.AutoSize = true;
+                    //idJog.BackColor = Color.Transparent;
+                    //idJog.Font = new Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    //idJog.ForeColor = SystemColors.ControlLightLight;
+                    //idJog.Location = new Point(40, 13);
+                    //idJog.Text = mesa[j];
+                    //idJogs.Add(idJog);
+                    Label numCarta = new Label();
+                    numCarta.AutoSize = true;
+                    numCarta.BackColor = Color.Transparent;
+                    numCarta.Font = new Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    numCarta.ForeColor = SystemColors.ControlLightLight;
+                    numCarta.Location = new Point(3, 9);
+                    numCarta.Size = new Size(13, 13);
+                    numCarta.Text = mesa[i];
+                    numCartas.Add(numCarta);
+                    Panel bodeBaixo = new Panel();
+                    bodeBaixo.BackColor = Color.Transparent;
+                    bodeBaixo.Size = new Size(bodesSizeHeight[j - 1], bodesSizeWidth);
+                    bodeBaixo.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("bode4");
+                    bodeBaixo.Location = new Point(0, 77);
+                    bodesBaixo.Add(bodeBaixo);
+                    carta.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("b" + imagem[j - 1]);
+                    carta.Size = new Size(68, 100);
+                    carta.Controls.Add(bodesBaixo[j - 1]);
+                    carta.Controls.Add(numCartas[j - 1]);
+                    //carta.Controls.Add(idJogs[j - 1]);
+                    cartas.Add(carta);
+                    flpCartasMesa.Controls.Add(cartas[j - 1]);
+                }
             }
         }
         public void listarHistorico()
@@ -80,12 +190,19 @@ namespace Ben10
             numCartas.Clear();
             cartas.Clear();
             grpCartas.Controls.Clear();
+            //reseta as posições para os valores iniciais
+            this.xCarta = 6;
+            this.yCarta = 19;
             string[] itensString = this.verificarMao();
-            if (itensString[0].StartsWith("ERRO"))
+            if(itensString == null)
+            {
+                return;
+            }
+            else if (itensString[0].StartsWith("ERRO"))
             {
                MessageBox.Show(itensString[0]);
             }
-            else if (itensString[0] != null)
+            else 
             {
                 int[] itens = new int[itensString.Length];
                 int[] bodesSizeHeight = new int[itens.Length];
@@ -168,32 +285,11 @@ namespace Ben10
                         this.yCarta = 125;
                     }
                 }
-                //reseta as posições para os valores iniciais
-                this.xCarta = 6;
-                this.yCarta = 19;
                 Thread.Sleep(800);
                 grpCartas.Visible = true;
             }
         }
-        public Lobby(string retorno, string nome, string jogadores, int id)
-        {
-            string[] itens = retorno.Split(',');
-            this.idJogador = itens[0];
-            this.senhaJogador = itens[1];
-            this.nomeJogador = nome;
-            this.id = id;
-            jogadores = jogadores.Replace("\r", "");
-            jogadores = jogadores.Replace(',', ' ');
-            jogadores = jogadores.Substring(0, jogadores.Length - 1);
-            this.jogadores = jogadores.Split('\n');
-            cartas = new List<Panel>();
-            numCartas = new List<Label>();
-            bodesBaixo = new List<Panel>();
-            bodesCima = new List<Panel>();
-            this.xCarta = 6;
-            this.yCarta = 19;
-            InitializeComponent();
-        }
+        
         private void Lobby_Load(object sender, EventArgs e)
         {
             lblNome.Text = this.nomeJogador;
