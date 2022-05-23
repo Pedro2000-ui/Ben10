@@ -289,6 +289,21 @@ namespace Ben10
                 grpCartas.Visible = true;
             }
         }
+
+        public void listarJogadores()
+        {
+            string jogadores = Jogo.ListarJogadores(this.id);
+            jogadores = jogadores.Replace("\r", "");
+            jogadores = jogadores.Replace(',', ' ');
+            jogadores = jogadores.Substring(0, jogadores.Length - 1);
+            this.jogadores = jogadores.Split('\n');
+            lstJogadores.Items.Clear();
+
+            for (int i = 0; i < this.jogadores.Length; i++)
+            {
+                lstJogadores.Items.Add(this.jogadores[i]);
+            }
+        }
         
         private void Lobby_Load(object sender, EventArgs e)
         {
@@ -304,17 +319,7 @@ namespace Ben10
         }
         private void btnListar_Click(object sender, EventArgs e)
         {
-            string jogadores = Jogo.ListarJogadores(this.id);
-            jogadores = jogadores.Replace("\r", "");
-            jogadores = jogadores.Replace(',', ' ');
-            jogadores = jogadores.Substring(0, jogadores.Length - 1);
-            this.jogadores = jogadores.Split('\n');
-            lstJogadores.Items.Clear();
-            
-            for (int i = 0; i < this.jogadores.Length; i++)
-            {
-                lstJogadores.Items.Add(this.jogadores[i]);
-            }
+            this.listarJogadores();
         }
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
@@ -422,6 +427,7 @@ namespace Ben10
         private void btnJogarSozinho_Click(object sender, EventArgs e)
         {
             //ativa o timer e o timer faz o código abaixo
+            this.listarJogadores();
             timer1.Enabled = true;
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -435,15 +441,30 @@ namespace Ben10
             string[] itens = retorno.Split(',');
             if (itens[1] == this.idJogador)
             {
-                if (retorno.Contains("B"))
+                if (this.jogadores.Length == 2)
                 {
-                    string[] cartas = this.verificarMao();
-                    Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(cartas[0]));
-                    this.listarCartas();
+                    if (retorno.Contains("B"))
+                    {
+                        string[] cartas = this.verificarMao();
+                        Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(cartas[0]));
+                        this.listarCartas();
+                    }
+                    else
+                    {
+                        string[] ilha = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador).Split(',');
+                        if (Convert.ToInt32(ilha[0]) > Convert.ToInt32(ilha[1]))
+                            Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(ilha[1]));
+                        else
+                            Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(ilha[0]));
+                    }
                 }
-                else {
-                    string[] ilha = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador).Split(',');
-                    Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(ilha[1]));
+                else if (this.jogadores.Length == 3)
+                {
+
+                }
+                else
+                {
+
                 }
             }
             this.listarMesa();
