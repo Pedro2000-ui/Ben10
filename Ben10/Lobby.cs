@@ -28,6 +28,7 @@ namespace Ben10
         public int yCarta;
         public int xCartaMesa;
         public int yCartaMesa;
+        public int ilhaDefinida;
 
         public Lobby(string retorno, string nome, string jogadores, int id)
         {
@@ -44,6 +45,7 @@ namespace Ben10
             numCartas = new List<Label>();
             bodesBaixo = new List<Panel>();
             bodesCima = new List<Panel>();
+            ilhaDefinida = 0;
             //idJogs = new List<Label>();
             InitializeComponent();
         }
@@ -307,6 +309,7 @@ namespace Ben10
         
         private void Lobby_Load(object sender, EventArgs e)
         {
+            
             lblNome.Text = this.nomeJogador;
             lblID.Text = this.idJogador;
             lblSenha.Text = this.senhaJogador;
@@ -441,30 +444,16 @@ namespace Ben10
             string[] itens = retorno.Split(',');
             if (itens[1] == this.idJogador)
             {
-                if (this.jogadores.Length == 2)
+                if (retorno.Contains("B"))
                 {
-                    if (retorno.Contains("B"))
-                    {
-                        string[] cartas = this.verificarMao();
-                        Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(cartas[0]));
-                        this.listarCartas();
-                    }
-                    else
-                    {
-                        string[] ilha = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador).Split(',');
-                        if (Convert.ToInt32(ilha[0]) > Convert.ToInt32(ilha[1]))
-                            Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(ilha[1]));
-                        else
-                            Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(ilha[0]));
-                    }
-                }
-                else if (this.jogadores.Length == 3)
-                {
-
+                    string[] cartas = this.verificarMao();
+                    Estrategia.JogarCarta(cartas, this.idJogador, this.senhaJogador);
+                    this.listarCartas();
                 }
                 else
                 {
-
+                    string[] ilhas = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador).Split(',');
+                    this.ilhaDefinida = Estrategia.DefinirIlha(ilhas, this.idJogador, this.senhaJogador, this.ilhaDefinida);
                 }
             }
             this.listarMesa();
