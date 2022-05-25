@@ -23,6 +23,7 @@ namespace Ben10
         List<Panel> bodesCima;
         List<Panel> cartas;
         List<Label> numCartas;
+        Estrategia estrategia;
         //List<Label> idJogs;
         public int xCarta;
         public int yCarta;
@@ -46,6 +47,7 @@ namespace Ben10
             bodesBaixo = new List<Panel>();
             bodesCima = new List<Panel>();
             ilhaDefinida = 0;
+            estrategia = new Estrategia();
             //idJogs = new List<Label>();
             InitializeComponent();
         }
@@ -61,7 +63,7 @@ namespace Ben10
             }
             return null;
         }
-        public void listarMesa()
+        public string[] listarMesa()
         {
             bodesCima.Clear();
             bodesBaixo.Clear();
@@ -78,7 +80,7 @@ namespace Ben10
             if (retorno.StartsWith("ERRO"))
             {
                 MessageBox.Show(retorno);
-                return;
+                return null;
             }
             retorno = retorno.Replace("\r", "");
             retorno = retorno.Replace("\n", ",");
@@ -170,6 +172,7 @@ namespace Ben10
                     flpCartasMesa.Controls.Add(cartas[j - 1]);
                 }
             }
+            return mesa;
         }
         public void listarHistorico()
         {
@@ -447,13 +450,14 @@ namespace Ben10
                 if (retorno.Contains("B"))
                 {
                     string[] cartas = this.verificarMao();
-                    Estrategia.JogarCarta(cartas, this.idJogador, this.senhaJogador);
+                    string[] mesa = this.listarMesa();
+                    estrategia.JogarCarta(cartas, this.idJogador, this.senhaJogador, mesa);
                     this.listarCartas();
                 }
                 else
                 {
                     string[] ilhas = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador).Split(',');
-                    this.ilhaDefinida = Estrategia.DefinirIlha(ilhas, this.idJogador, this.senhaJogador, this.ilhaDefinida);
+                    this.ilhaDefinida = estrategia.DefinirIlha(ilhas, this.idJogador, this.senhaJogador, this.ilhaDefinida);
                 }
             }
             this.listarMesa();

@@ -55,6 +55,7 @@
     <Compile Include="BackGround.Designer.cs">
       <DependentUpon>BackGround.cs</DependentUpon>
     </Compile>
+    <Compile Include="Estrategia.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
