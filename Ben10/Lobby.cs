@@ -87,9 +87,9 @@ namespace Ben10
             retorno = retorno.Substring(0, retorno.Length - 1);
             string[] mesa = retorno.Split(',');
             if(mesa[0] == "")
-                lblIlha.Text = "I0";
+                lblIlha.Text = "0";
             else
-                lblIlha.Text = mesa[0];
+                lblIlha.Text = mesa[0].Replace("I", "");
             List<string> imagem = new List<string>();
             List<int> bodesSizeHeight = new List<int>();
             const int bodesSizeWidth = 23;
@@ -322,6 +322,7 @@ namespace Ben10
                 lstJogadores.Items.Add(this.jogadores[i]);
             }
             this.listarHistorico();
+            timer1.Enabled = true;
         }
         private void btnListar_Click(object sender, EventArgs e)
         {
@@ -433,8 +434,6 @@ namespace Ben10
         private void btnJogarSozinho_Click(object sender, EventArgs e)
         {
             //ativa o timer e o timer faz o código abaixo
-            this.listarJogadores();
-            timer1.Enabled = true;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -442,9 +441,12 @@ namespace Ben10
             string retorno = Jogo.VerificarVez(this.id);
             if (retorno.Contains("E"))
             {
+                timer1.Enabled = true;
                 return;
             }
             string[] itens = retorno.Split(',');
+            if (itens[2] == "1")
+                this.listarJogadores();
             if (itens[1] == this.idJogador)
             {
                 if (retorno.Contains("B"))
@@ -457,7 +459,7 @@ namespace Ben10
                 else
                 {
                     string[] ilhas = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador).Split(',');
-                    this.ilhaDefinida = estrategia.DefinirIlha(ilhas, this.idJogador, this.senhaJogador, this.ilhaDefinida);
+                    this.ilhaDefinida = estrategia.DefinirIlha(ilhas, this.idJogador, this.senhaJogador, this.ilhaDefinida, itens[2]);
                 }
             }
             this.listarMesa();

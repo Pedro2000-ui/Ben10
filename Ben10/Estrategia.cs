@@ -24,9 +24,13 @@ namespace Ben10
 
         public void JogarCarta(string[] cartas, string idJogador, string senhaJogador, string[] mesa)
         {
-            for(int i = 0; i < cartas.Length; i++)
+            multiplos10.Clear();
+            multiplos5.Clear();
+            multiplos4.Clear();
+            multiplos1.Clear();
+            for (int i = 0; i < cartas.Length; i++)
             {
-                if(Convert.ToInt32(cartas[i]) % 10 == 0 && Convert.ToInt32(cartas[i]) < 49)
+                if(Convert.ToInt32(cartas[i]) % 10 == 0 && Convert.ToInt32(cartas[i]) < 50)
                     multiplos10.Add(Convert.ToInt32(cartas[i]));
                 
                 else if (Convert.ToInt32(cartas[i]) % 5 == 0)
@@ -39,45 +43,64 @@ namespace Ben10
                     multiplos1.Add(Convert.ToInt32(cartas[i]));
             }
             
-            if(mesa != null && mesa.Length > 1)
+            if(mesa.Length > 1)
             {
                 for(int i = 2; i < mesa.Length; i += 2)
                 {
-                    for(int j = 0; j < cartas.Length; j++)
-                    {
-                        if(multiplos10.Count > 0 && multiplos10[j] < Convert.ToInt32(cartas[i]))
+                    //Estou em Vantagem
+                    foreach (int multiploDe10 in multiplos10)
+                        if (multiploDe10 < Convert.ToInt32(mesa[i]))
                         {
-                            Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos10[j]);
-                            break;
+                            Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiploDe10);
+                            return;
                         }
-                        else if(multiplos5.Count > 0 && multiplos5[j] < Convert.ToInt32(cartas[i]))
+                    foreach (int multiploDe5 in multiplos5)
+                        if (multiploDe5 < Convert.ToInt32(mesa[i]))
                         {
-                            Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos5[j]);
-                            break;
+                            Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiploDe5);
+                            return;
                         }
-                        else if(multiplos4.Count > 0 && multiplos4[j] < Convert.ToInt32(cartas[i]))
+                    foreach (int multiploDe4 in multiplos4)
+                        if (multiploDe4 < Convert.ToInt32(mesa[i]))
                         {
-                            Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos4[j]);
-                            break;
+                            Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiploDe4);
+                            return;
                         }
-                        else if (multiplos1.Count > 0)
-                        {
-                            Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos1[j]);
-                            break;
-                        }
-                    }
                 }
+                //Estou em desvantagem
+                if (multiplos1.Count > 0)
+                    Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos1[multiplos1.Count - 1]);
+                else if (multiplos4.Count > 0)
+                    Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos4[multiplos4.Count - 1]);
+                else if (multiplos5.Count > 0)
+                    Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos5[multiplos5.Count - 1]);
+                else
+                    Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos10[multiplos10.Count - 1]);
             }
             else
-                Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos1[0]);
+                Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, Convert.ToInt32(cartas[0]));
         }
-
-        public int DefinirIlha(string[] ilhas, string idJogador, string senhaJogador, int ilhaDefinida)
+        public int DefinirIlha(string[] ilhas, string idJogador, string senhaJogador, int ilhaDefinida, string rodada)
         {
+            int max;
+            int min;
+
             if (Convert.ToInt32(ilhas[0]) > Convert.ToInt32(ilhas[1]))
-                Jogo.DefinirIlha(Convert.ToInt32(idJogador), senhaJogador, Convert.ToInt32(ilhas[1]));
+            {
+                max = Convert.ToInt32(ilhas[0]);
+                min = Convert.ToInt32(ilhas[1]);
+            }
             else
-                Jogo.DefinirIlha(Convert.ToInt32(idJogador), senhaJogador, Convert.ToInt32(ilhas[0]));
+            {
+                max = Convert.ToInt32(ilhas[1]);
+                min = Convert.ToInt32(ilhas[0]);
+            }
+            if (rodada == "3" && ilhaDefinida == 0)
+                Jogo.DefinirIlha(Convert.ToInt32(idJogador), senhaJogador, max);
+            else if (rodada == "4" && ilhaDefinida <= 1)
+                Jogo.DefinirIlha(Convert.ToInt32(idJogador), senhaJogador, max);
+            else
+                Jogo.DefinirIlha(Convert.ToInt32(idJogador), senhaJogador, min);
             ilhaDefinida++;
             return ilhaDefinida;
         }

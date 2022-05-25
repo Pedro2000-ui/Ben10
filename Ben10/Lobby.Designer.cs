@@ -485,9 +485,8 @@
             this.lblIlha.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIlha.Location = new System.Drawing.Point(47, 50);
             this.lblIlha.Name = "lblIlha";
-            this.lblIlha.Size = new System.Drawing.Size(55, 33);
+            this.lblIlha.Size = new System.Drawing.Size(0, 33);
             this.lblIlha.TabIndex = 8;
-            this.lblIlha.Text = "I10";
             // 
             // flpCartasMesa
             // 
@@ -580,7 +579,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Lobby";
-            this.Text = "Lobby";
+            this.Text = "Lobby - Ben10";
             this.Load += new System.EventHandler(this.Lobby_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
