@@ -72,7 +72,6 @@ C:\Users\vitor\source\repos\Ben10\Ben10\Ben10\obj\Debug\Ben10.csproj.CoreCompile
 C:\Users\vitor\source\repos\Ben10\Ben10\Ben10\obj\Debug\Ben10.csproj.CopyComplete
 C:\Users\vitor\source\repos\Ben10\Ben10\Ben10\obj\Debug\Ben10.exe
 C:\Users\vitor\source\repos\Ben10\Ben10\Ben10\obj\Debug\Ben10.pdb
-C:\Users\Pedro.brito\Documents\PI\Ben10\Ben10\obj\Debug\Ben10.BackGround.resources
 C:\pi\Ben10\Ben10\bin\Debug\Ben10.exe.config
 C:\pi\Ben10\Ben10\bin\Debug\Ben10.exe
 C:\pi\Ben10\Ben10\bin\Debug\Ben10.pdb

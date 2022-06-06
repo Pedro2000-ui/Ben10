@@ -43,25 +43,10 @@
             this.lstHistorico = new System.Windows.Forms.ListBox();
             this.btnHistorico = new System.Windows.Forms.Button();
             this.grpCartas = new System.Windows.Forms.GroupBox();
-            this.txtJogarCarta = new System.Windows.Forms.TextBox();
-            this.txtIlha = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lstVerificarIlha = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lstVez = new System.Windows.Forms.ListBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtRodada = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnMesa = new System.Windows.Forms.Button();
-            this.btnJogarSozinho = new System.Windows.Forms.Button();
-            this.btnIlha = new System.Windows.Forms.Button();
-            this.btnCartas = new System.Windows.Forms.Button();
-            this.btnJogar = new System.Windows.Forms.Button();
-            this.btnVerificaIlha = new System.Windows.Forms.Button();
-            this.btnVez = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grpMesa = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -75,7 +60,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.grpMesa.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -186,7 +170,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(285, 187);
+            this.groupBox1.Size = new System.Drawing.Size(441, 187);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações do Servidor";
@@ -198,7 +182,7 @@
             this.groupBox2.Controls.Add(this.btnHistorico);
             this.groupBox2.Location = new System.Drawing.Point(18, 215);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(279, 479);
+            this.groupBox2.Size = new System.Drawing.Size(435, 479);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Histórico";
@@ -208,7 +192,7 @@
             this.lstHistorico.FormattingEnabled = true;
             this.lstHistorico.Location = new System.Drawing.Point(6, 16);
             this.lstHistorico.Name = "lstHistorico";
-            this.lstHistorico.Size = new System.Drawing.Size(267, 420);
+            this.lstHistorico.Size = new System.Drawing.Size(423, 420);
             this.lstHistorico.TabIndex = 12;
             // 
             // btnHistorico
@@ -225,91 +209,24 @@
             // 
             // grpCartas
             // 
-            this.grpCartas.Location = new System.Drawing.Point(541, 448);
+            this.grpCartas.Location = new System.Drawing.Point(707, 448);
             this.grpCartas.Name = "grpCartas";
             this.grpCartas.Size = new System.Drawing.Size(314, 240);
             this.grpCartas.TabIndex = 11;
             this.grpCartas.TabStop = false;
             this.grpCartas.Text = "Cartas da Mão";
             // 
-            // txtJogarCarta
-            // 
-            this.txtJogarCarta.Location = new System.Drawing.Point(94, 82);
-            this.txtJogarCarta.Name = "txtJogarCarta";
-            this.txtJogarCarta.Size = new System.Drawing.Size(129, 20);
-            this.txtJogarCarta.TabIndex = 13;
-            // 
-            // txtIlha
-            // 
-            this.txtIlha.Location = new System.Drawing.Point(94, 231);
-            this.txtIlha.Name = "txtIlha";
-            this.txtIlha.Size = new System.Drawing.Size(129, 20);
-            this.txtIlha.TabIndex = 14;
-            this.txtIlha.TextChanged += new System.EventHandler(this.txtIlha_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Carta";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 238);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Ilha";
-            // 
-            // lstVerificarIlha
-            // 
-            this.lstVerificarIlha.FormattingEnabled = true;
-            this.lstVerificarIlha.Location = new System.Drawing.Point(94, 163);
-            this.lstVerificarIlha.Name = "lstVerificarIlha";
-            this.lstVerificarIlha.Size = new System.Drawing.Size(129, 17);
-            this.lstVerificarIlha.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 167);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Verificar Ilha";
-            // 
-            // lstVez
-            // 
-            this.lstVez.FormattingEnabled = true;
-            this.lstVez.Location = new System.Drawing.Point(94, 11);
-            this.lstVez.Name = "lstVez";
-            this.lstVez.Size = new System.Drawing.Size(129, 17);
-            this.lstVez.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 11);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 13);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Verificar Vez";
-            // 
             // txtRodada
             // 
-            this.txtRodada.Location = new System.Drawing.Point(94, 290);
+            this.txtRodada.Location = new System.Drawing.Point(1219, 599);
             this.txtRodada.Name = "txtRodada";
-            this.txtRodada.Size = new System.Drawing.Size(129, 20);
+            this.txtRodada.Size = new System.Drawing.Size(26, 20);
             this.txtRodada.TabIndex = 25;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 290);
+            this.label8.Location = new System.Drawing.Point(1168, 602);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 26;
@@ -320,31 +237,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(93)))), ((int)(((byte)(67)))));
-            this.panel1.Controls.Add(this.btnMesa);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.btnJogarSozinho);
-            this.panel1.Controls.Add(this.txtRodada);
-            this.panel1.Controls.Add(this.txtIlha);
-            this.panel1.Controls.Add(this.lstVerificarIlha);
-            this.panel1.Controls.Add(this.btnIlha);
-            this.panel1.Controls.Add(this.txtJogarCarta);
-            this.panel1.Controls.Add(this.btnCartas);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.btnJogar);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.btnVerificaIlha);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.btnVez);
-            this.panel1.Controls.Add(this.lstVez);
-            this.panel1.Location = new System.Drawing.Point(1043, -7);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(333, 449);
-            this.panel1.TabIndex = 28;
-            // 
             // btnMesa
             // 
             this.btnMesa.BackgroundImage = global::Ben10.Properties.Resources.retangulo;
@@ -352,7 +244,7 @@
             this.btnMesa.FlatAppearance.BorderSize = 0;
             this.btnMesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMesa.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnMesa.Location = new System.Drawing.Point(148, 324);
+            this.btnMesa.Location = new System.Drawing.Point(1170, 628);
             this.btnMesa.Name = "btnMesa";
             this.btnMesa.Size = new System.Drawing.Size(75, 23);
             this.btnMesa.TabIndex = 24;
@@ -360,97 +252,12 @@
             this.btnMesa.UseVisualStyleBackColor = true;
             this.btnMesa.Click += new System.EventHandler(this.btnMesa_Click);
             // 
-            // btnJogarSozinho
-            // 
-            this.btnJogarSozinho.BackgroundImage = global::Ben10.Properties.Resources.retangulo;
-            this.btnJogarSozinho.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnJogarSozinho.FlatAppearance.BorderSize = 0;
-            this.btnJogarSozinho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJogarSozinho.Location = new System.Drawing.Point(25, 377);
-            this.btnJogarSozinho.Name = "btnJogarSozinho";
-            this.btnJogarSozinho.Size = new System.Drawing.Size(97, 30);
-            this.btnJogarSozinho.TabIndex = 27;
-            this.btnJogarSozinho.Text = "Jogar Sozinho";
-            this.btnJogarSozinho.UseVisualStyleBackColor = true;
-            this.btnJogarSozinho.Click += new System.EventHandler(this.btnJogarSozinho_Click);
-            // 
-            // btnIlha
-            // 
-            this.btnIlha.BackgroundImage = global::Ben10.Properties.Resources.retangulo;
-            this.btnIlha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnIlha.Enabled = false;
-            this.btnIlha.FlatAppearance.BorderSize = 0;
-            this.btnIlha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIlha.Location = new System.Drawing.Point(148, 257);
-            this.btnIlha.Name = "btnIlha";
-            this.btnIlha.Size = new System.Drawing.Size(75, 23);
-            this.btnIlha.TabIndex = 17;
-            this.btnIlha.Text = "Definir ilha";
-            this.btnIlha.UseVisualStyleBackColor = true;
-            this.btnIlha.Click += new System.EventHandler(this.btnIlha_Click);
-            // 
-            // btnCartas
-            // 
-            this.btnCartas.BackgroundImage = global::Ben10.Properties.Resources.retangulo;
-            this.btnCartas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCartas.FlatAppearance.BorderSize = 0;
-            this.btnCartas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCartas.Location = new System.Drawing.Point(206, 377);
-            this.btnCartas.Name = "btnCartas";
-            this.btnCartas.Size = new System.Drawing.Size(97, 30);
-            this.btnCartas.TabIndex = 12;
-            this.btnCartas.Text = "Cartas";
-            this.btnCartas.UseVisualStyleBackColor = true;
-            this.btnCartas.Click += new System.EventHandler(this.btnCartas_Click);
-            // 
-            // btnJogar
-            // 
-            this.btnJogar.BackgroundImage = global::Ben10.Properties.Resources.retangulo;
-            this.btnJogar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnJogar.FlatAppearance.BorderSize = 0;
-            this.btnJogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJogar.Location = new System.Drawing.Point(148, 108);
-            this.btnJogar.Name = "btnJogar";
-            this.btnJogar.Size = new System.Drawing.Size(75, 23);
-            this.btnJogar.TabIndex = 16;
-            this.btnJogar.Text = "Jogar";
-            this.btnJogar.UseVisualStyleBackColor = true;
-            this.btnJogar.Click += new System.EventHandler(this.btnJogar_Click);
-            // 
-            // btnVerificaIlha
-            // 
-            this.btnVerificaIlha.BackgroundImage = global::Ben10.Properties.Resources.retangulo;
-            this.btnVerificaIlha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnVerificaIlha.FlatAppearance.BorderSize = 0;
-            this.btnVerificaIlha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerificaIlha.Location = new System.Drawing.Point(148, 186);
-            this.btnVerificaIlha.Name = "btnVerificaIlha";
-            this.btnVerificaIlha.Size = new System.Drawing.Size(75, 23);
-            this.btnVerificaIlha.TabIndex = 20;
-            this.btnVerificaIlha.Text = "Verificar";
-            this.btnVerificaIlha.UseVisualStyleBackColor = true;
-            this.btnVerificaIlha.Click += new System.EventHandler(this.btnVerificaIlha_Click);
-            // 
-            // btnVez
-            // 
-            this.btnVez.BackgroundImage = global::Ben10.Properties.Resources.retangulo;
-            this.btnVez.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnVez.FlatAppearance.BorderSize = 0;
-            this.btnVez.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVez.Location = new System.Drawing.Point(148, 40);
-            this.btnVez.Name = "btnVez";
-            this.btnVez.Size = new System.Drawing.Size(75, 23);
-            this.btnVez.TabIndex = 21;
-            this.btnVez.Text = "Verificar vez";
-            this.btnVez.UseVisualStyleBackColor = true;
-            this.btnVez.Click += new System.EventHandler(this.btnVez_Click);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(93)))), ((int)(((byte)(67)))));
             this.panel2.Location = new System.Drawing.Point(-18, -7);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(338, 711);
+            this.panel2.Size = new System.Drawing.Size(515, 711);
             this.panel2.TabIndex = 29;
             // 
             // grpMesa
@@ -462,7 +269,7 @@
             this.grpMesa.Controls.Add(this.pictureBox4);
             this.grpMesa.Controls.Add(this.pictureBox3);
             this.grpMesa.Controls.Add(this.pictureBox2);
-            this.grpMesa.Location = new System.Drawing.Point(326, 12);
+            this.grpMesa.Location = new System.Drawing.Point(534, 12);
             this.grpMesa.Name = "grpMesa";
             this.grpMesa.Size = new System.Drawing.Size(711, 430);
             this.grpMesa.TabIndex = 12;
@@ -473,7 +280,7 @@
             // 
             this.panel3.BackgroundImage = global::Ben10.Properties.Resources.ilha;
             this.panel3.Controls.Add(this.lblIlha);
-            this.panel3.Location = new System.Drawing.Point(561, 284);
+            this.panel3.Location = new System.Drawing.Point(561, 290);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(150, 140);
             this.panel3.TabIndex = 11;
@@ -558,7 +365,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Ben10.Properties.Resources.omnitrix;
-            this.pictureBox1.Location = new System.Drawing.Point(1043, 448);
+            this.pictureBox1.Location = new System.Drawing.Point(1101, 448);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(144, 120);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -571,21 +378,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(151)))), ((int)(((byte)(117)))));
             this.ClientSize = new System.Drawing.Size(1370, 707);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnMesa);
+            this.Controls.Add(this.txtRodada);
             this.Controls.Add(this.grpMesa);
             this.Controls.Add(this.grpCartas);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Lobby";
             this.Text = "Lobby - Ben10";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Lobby_FormClosed);
             this.Load += new System.EventHandler(this.Lobby_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.grpMesa.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -596,6 +404,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -614,26 +423,11 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox lstHistorico;
         private System.Windows.Forms.Button btnHistorico;
-        private System.Windows.Forms.Button btnCartas;
         private System.Windows.Forms.GroupBox grpCartas;
-        private System.Windows.Forms.TextBox txtJogarCarta;
-        private System.Windows.Forms.TextBox txtIlha;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnJogar;
-        private System.Windows.Forms.Button btnIlha;
-        private System.Windows.Forms.ListBox lstVerificarIlha;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnVerificaIlha;
-        private System.Windows.Forms.Button btnVez;
-        private System.Windows.Forms.ListBox lstVez;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnMesa;
         private System.Windows.Forms.TextBox txtRodada;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnJogarSozinho;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox grpMesa;

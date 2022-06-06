@@ -78,7 +78,14 @@ namespace Ben10
                     Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos10[multiplos10.Count - 1]);
             }
             else
-                Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, Convert.ToInt32(cartas[0]));
+                if (multiplos1.Count > 0)
+                    Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos1[0]);
+                else if (multiplos4.Count > 0)
+                    Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos4[0]);
+                else if (multiplos5.Count > 0)
+                    Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos5[0]);
+                else
+                    Jogo.Jogar(Convert.ToInt32(idJogador), senhaJogador, multiplos10[0]);
         }
         public int DefinirIlha(string[] ilhas, string idJogador, string senhaJogador, int ilhaDefinida, string rodada)
         {

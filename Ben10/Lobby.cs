@@ -24,7 +24,6 @@ namespace Ben10
         List<Panel> cartas;
         List<Label> numCartas;
         Estrategia estrategia;
-        //List<Label> idJogs;
         public int xCarta;
         public int yCarta;
         public int xCartaMesa;
@@ -48,7 +47,6 @@ namespace Ben10
             bodesCima = new List<Panel>();
             ilhaDefinida = 0;
             estrategia = new Estrategia();
-            //idJogs = new List<Label>();
             InitializeComponent();
         }
         public string[] verificarMao()
@@ -68,7 +66,6 @@ namespace Ben10
             bodesCima.Clear();
             bodesBaixo.Clear();
             numCartas.Clear();
-            //idJogs.Clear();
             cartas.Clear();
             flpCartasMesa.Controls.Clear();
             
@@ -139,15 +136,6 @@ namespace Ben10
                         imagem.Add("4");
                     else
                         imagem.Add("9");
-
-                    //Label idJog = new Label();
-                    //idJog.AutoSize = true;
-                    //idJog.BackColor = Color.Transparent;
-                    //idJog.Font = new Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    //idJog.ForeColor = SystemColors.ControlLightLight;
-                    //idJog.Location = new Point(40, 13);
-                    //idJog.Text = mesa[j];
-                    //idJogs.Add(idJog);
                     Label numCarta = new Label();
                     numCarta.AutoSize = true;
                     numCarta.BackColor = Color.Transparent;
@@ -167,7 +155,6 @@ namespace Ben10
                     carta.Size = new Size(68, 100);
                     carta.Controls.Add(bodesBaixo[j - 1]);
                     carta.Controls.Add(numCartas[j - 1]);
-                    //carta.Controls.Add(idJogs[j - 1]);
                     cartas.Add(carta);
                     flpCartasMesa.Controls.Add(cartas[j - 1]);
                 }
@@ -312,7 +299,6 @@ namespace Ben10
         
         private void Lobby_Load(object sender, EventArgs e)
         {
-            
             lblNome.Text = this.nomeJogador;
             lblID.Text = this.idJogador;
             lblSenha.Text = this.senhaJogador;
@@ -341,112 +327,23 @@ namespace Ben10
                 this.listarCartas();
             }
         }
-        private void btnCartas_Click(object sender, EventArgs e)
-        {
-            this.listarCartas();
-        }
-        private void btnVez_Click(object sender, EventArgs e)
-        {
-            string retorno = Jogo.VerificarVez(this.id);
-            lstVez.Items.Clear();
-            if (retorno.StartsWith("ERRO"))
-            {
-                MessageBox.Show(retorno);
-                return;
-            }
-            lstVez.Items.Add(retorno);
-        }
-        private void btnJogar_Click(object sender, EventArgs e)
-        {
-            if (txtJogarCarta.Text == "")
-            {
-                MessageBox.Show("Insira o Número da Carta!");
-            }
-            else
-            {
-                string retorno = Jogo.Jogar(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(txtJogarCarta.Text));
-                if (retorno.StartsWith("ERRO"))
-                {
-                    MessageBox.Show(retorno);
-                    return;
-                }
-                txtJogarCarta.Text = "";
-                this.listarHistorico();
-                MessageBox.Show("Sucesso ao jogar!");
-                this.listarCartas();
-                this.listarMesa();
-            }
-        }
-        private void btnVerificaIlha_Click(object sender, EventArgs e)
-        {
-            string retorno = Jogo.VerificarIlha(Convert.ToInt32(this.idJogador), this.senhaJogador);
-            lstVerificarIlha.Items.Clear();
-            if (retorno.StartsWith("ERRO"))
-            {
-                MessageBox.Show(retorno);
-                return;
-            }
-            lstVerificarIlha.Items.Add(retorno);
-        }
-        private void btnIlha_Click(object sender, EventArgs e)
-        {
-            string vez = Jogo.VerificarVez(this.id);
-            if(vez.Contains(",I"))
-            {
-                if (txtIlha.Text == "")
-                {
-                    MessageBox.Show("Insira o valor da ilha!");
-                }
-                else
-                {
-                    string retorno = Jogo.DefinirIlha(Convert.ToInt32(this.idJogador), this.senhaJogador, Convert.ToInt32(txtIlha.Text));
-                    if (retorno.StartsWith("ERRO"))
-                    {
-                        MessageBox.Show(retorno);
-                    }
-                    txtIlha.Text = "";
-                    this.listarHistorico();
-                    this.listarMesa();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Não é a hora de definir a ilha!");
-            }
-        }
-        private void txtIlha_TextChanged(object sender, EventArgs e)
-        {
-            if (txtIlha.Text.Trim() == " ")
-            {
-                btnIlha.Enabled = false;
-                return;
-            }
-            btnIlha.Enabled = true;
-        }
-        private void btnHistorico_Click(object sender, EventArgs e)
-        {
-            this.listarHistorico();
-        }
         private void btnMesa_Click(object sender, EventArgs e)
         {
             this.listarMesa();
-        }
-        private void btnJogarSozinho_Click(object sender, EventArgs e)
-        {
-            //ativa o timer e o timer faz o código abaixo
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;
             string retorno = Jogo.VerificarVez(this.id);
-            if (retorno.Contains("E"))
-            {
+            if(retorno.Contains("E")) {
                 timer1.Enabled = true;
                 return;
             }
+            
             string[] itens = retorno.Split(',');
             if (itens[2] == "1")
                 this.listarJogadores();
+            
             if (itens[1] == this.idJogador)
             {
                 if (retorno.Contains("B"))
@@ -465,6 +362,16 @@ namespace Ben10
             this.listarMesa();
             this.listarHistorico();
             timer1.Enabled = true;
+        }
+
+        private void Lobby_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timer1.Enabled = false;
+        }
+
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+            this.listarHistorico();
         }
     }
 }
