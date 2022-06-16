@@ -336,6 +336,7 @@ namespace Ben10
             timer1.Enabled = false;
             string retorno = Jogo.VerificarVez(this.id);
             if(retorno.Contains("E")) {
+                Thread.Sleep(10000);
                 timer1.Enabled = true;
                 return;
             }
