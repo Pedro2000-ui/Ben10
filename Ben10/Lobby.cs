@@ -277,7 +277,7 @@ namespace Ben10
                         this.yCarta = 125;
                     }
                 }
-                Thread.Sleep(800);
+                //Thread.Sleep(800);
                 grpCartas.Visible = true;
             }
         }
@@ -336,7 +336,7 @@ namespace Ben10
             timer1.Enabled = false;
             string retorno = Jogo.VerificarVez(this.id);
             if(retorno.Contains("E")) {
-                Thread.Sleep(10000);
+                Thread.Sleep(800);
                 timer1.Enabled = true;
                 return;
             }
